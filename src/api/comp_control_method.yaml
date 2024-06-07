@@ -1,0 +1,29 @@
+functionality:
+  namespace: "control_methods"
+  info:
+    type: control_method
+    type_info:
+      label: Control Method
+      summary: A control method.
+      description: |
+        A control method to predict perturbation effects.
+  arguments:
+    - name: --train_h5ad
+      __merge__: file_train_h5ad.yaml
+      required: false
+      direction: input
+    - name: --test_h5ad
+      __merge__: file_test_h5ad.yaml
+      required: true
+      direction: input
+    - name: --output
+      __merge__: file_prediction.yaml
+      required: true
+      direction: output
+  test_resources:
+    - type: python_script
+      path: /common/src/component_tests/run_and_check_output.py
+    - type: python_script
+      path: /common/component_tests/check_method_config.py
+    - path: #TODO: fill in e.g. /resources/denoising/pancreas
+      dest: #TODO: fill in e.g. resources/denoising/pancreas
