@@ -1,8 +1,6 @@
 # Task Template
-This repo is a template to create a new task for the OpenProblems v2. This repo contains several example files and components that can be used when updated with the task info.
 
-Check out the [instructions](INSTRUCTIONS.md) for more information on how to update the example files and components. These instructions also contain information on how to build out the task and basic commands.
-For more information on the OpenProblems v2, check out the [OpenProblems.bio](openproblems.bio) website.
+This repo is a template to create a new task for the OpenProblems v2. This repo contains several example files and components that can be used when updated with the task info.
 
 **Warning:** This README will be overwritten when performing the `create_task_readme` script.
 
@@ -20,11 +18,8 @@ The instructions below will guide you through creating a new repository from thi
 * Set the repository visibility to public.
 * Click "Create repository from template".
 
+## What to do next
 
-<!-- Add to readme 
-* update _viash.yaml
-* update src/api/task_info.yaml
-* update scripts/download_resources
--->
+Check out the [instructions](INSTRUCTIONS.md) for more information on how to update the example files and components. These instructions also contain information on how to build out the task and basic commands.
 
-
+For more information on the OpenProblems v2, check out the [Documentation](https://openproblems.bio/documentation/) on the Open Problems website.
