@@ -65,7 +65,7 @@ engines:
 
 runners:
   # This platform allows running the component natively
-  - type: native
+  - type: executable
   # Allows turning the component into a Nextflow module / pipeline.
   - type: nextflow
     directives:
