@@ -7,7 +7,7 @@ This repo is a template to create a new task for the OpenProblems v2. This repo 
 ## Create a repository from this template
 
 **Important**  
-Before creating a new repository, make sure yoou are part of the openProblems task team. This will be done when you create an issue for the task and you got the go ahead to create the task
+Before creating a new repository, make sure you are part of the openProblems task team. This will be done when you create an issue for the task and you got the go ahead to create the task. For more information on how to create a new task, check out the [Create a new task](https://openproblems.bio/documentation/create_task/) documentation.
 
 The instructions below will guide you through creating a new repository from this template ([creating-a-repository-from-a-template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template)).
 
