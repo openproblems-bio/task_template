@@ -28,7 +28,7 @@ jobs:
   list:
     needs: run_ci_check_job
     env:
-      s3_bucket: s3://openproblems-data/resources_test/cell_cell_communication
+      s3_bucket: s3://openproblems-data/resources_test
     runs-on: ubuntu-latest
     if: ${{ needs.run_ci_check_job.outputs.run_ci == 'true' }}
 
@@ -42,12 +42,16 @@ jobs:
         fetch-depth: 0
         submodules: 'recursive'
 
+    - uses: christian-ci/action-yaml-github-output@v2
+      with:
+        file_path: _viash.yaml
+
     - uses: viash-io/viash-actions/setup@v5
 
     - uses: viash-io/viash-actions/project/sync-and-cache-s3@v5
       id: cache
       with:
-        s3_bucket: $s3_bucket
+        s3_bucket: $s3_bucket/$NAME
         dest_path: resources
         cache_key_prefix: resources__
 
