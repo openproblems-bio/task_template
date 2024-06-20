@@ -56,7 +56,8 @@ description: |
   Be sure to explain any terminology or concepts that are essential for understanding the task.
 
 authors: 
-  - name: ... # Full name of the author, usually in the name of FirstName MiddleName LastName.
+  # Full name of the author, usually in the name of FirstName MiddleName LastName.
+  - name: ... 
     # Role of the author. Possible values:
     # 
     # * `"author"`: Authors who have made substantial contributions to the component.

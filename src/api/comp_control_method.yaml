@@ -5,7 +5,7 @@ info:
     label: Control Method
     summary: A control method.
     description: |
-      A control method to predict perturbation effects.
+      A control method to predict effects.
 arguments:
   - name: --train_h5ad
     __merge__: file_train_h5ad.yaml

@@ -2,13 +2,13 @@
 type: file
 example: "resources_test/denoising/pancreas/denoised.h5ad"
 info:
-  label: "Denoised data"
-  summary: A denoised dataset as output by a denoising method.
+  label: "Predicted data"
+  summary: A predicted dataset as output by a method.
   slots:
     layers:
       - type: integer
-        name: denoised
-        description: denoised data
+        name: preditcion
+        description: predicted data
         required: true
     uns:
       - type: string
