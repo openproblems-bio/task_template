@@ -3,7 +3,8 @@
 #   - The input/output files
 #   - Common parameters
 #   - A unit test
-__merge__: /src/api/comp_metric.yaml
+__merge__: ../../api/comp_metric.yaml
+
 
 # A unique identifier for your component (required).
 # Can contain only lowercase letters or underscores.
@@ -58,10 +59,10 @@ engines:
   - type: docker
     image: ghcr.io/openproblems-bio/base_python:1.0.4
     # Add custom dependencies here (optional). For more information, see
-    # https://viash.io/reference/config/platforms/docker/#setup .
-    setup:
-      - type: python
-        packages: [ fastparquet ]
+    # https://viash.io/reference/config/engines/docker/#setup .
+    # setup:
+    #   - type: python
+    #     packages: scib==1.1.5
 
 runners:
   # This platform allows running the component natively

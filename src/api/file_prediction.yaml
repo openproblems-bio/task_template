@@ -7,7 +7,7 @@ info:
   slots:
     layers:
       - type: integer
-        name: preditcion
+        name: prediction
         description: predicted data
         required: true
     uns:
