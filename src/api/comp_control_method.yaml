@@ -25,5 +25,5 @@ test_resources:
   - type: python_script
     path: /common/component_tests/check_method_config.py
   - path: /common/library.bib
-  - path: #TODO: fill in e.g. /resources/denoising/pancreas
-    dest: #TODO: fill in e.g. resources/denoising/pancreas
+  #TODO: - path: fill in e.g. /resources/denoising/pancreas
+  #TODO:   dest:  fill in e.g. resources/denoising/pancreas
