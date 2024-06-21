@@ -1,0 +1,21 @@
+#TODO: Change to the required and/or optional fields of the anndata
+type: file
+example: "resources_test/denoising/pancreas/denoised.h5ad"
+info:
+  label: "Predicted data"
+  summary: A predicted dataset as output by a method.
+  slots:
+    layers:
+      - type: integer
+        name: prediction
+        description: predicted data
+        required: true
+    uns:
+      - type: string
+        name: dataset_id
+        description: "A unique identifier for the dataset"
+        required: true
+      - type: string
+        name: method_id
+        description: "A unique identifier for the method"
+        required: true
