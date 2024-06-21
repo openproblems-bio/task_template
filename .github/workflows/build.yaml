@@ -53,7 +53,7 @@ jobs:
 
     - uses: viash-io/viash-actions/ns-build@v5
       with:
-        config_mod: .functionality.version := '${{ steps.defaults.outputs.version }}'
+        config_mod: .version := '${{ steps.defaults.outputs.version }}'
         parallel: true
 
     - name: Deploy to target branch
@@ -74,7 +74,7 @@ jobs:
       run: |
         echo "matrix=$(jq -c '[ .[] | 
           { 
-            "name": (.functionality.namespace + "/" + .functionality.name),
+            "name": (.namespace + "/" + .name),
             "dir": .info.config | capture("^(?<dir>.*\/)").dir
           }
         ]' ${{ steps.ns_list.outputs.output_file }} )" >> $GITHUB_OUTPUT
@@ -101,7 +101,7 @@ jobs:
     - name: Build container
       uses: viash-io/viash-actions/ns-build@v5
       with:
-        config_mod: .functionality.version := '${{ needs.list.outputs.version }}'
+        config_mod: .version := '${{ needs.list.outputs.version }}'
         platform: docker
         src: ${{ matrix.component.dir }}
         setup: build
@@ -116,7 +116,7 @@ jobs:
     - name: Push container
       uses: viash-io/viash-actions/ns-build@v5
       with:
-        config_mod: .functionality.version := '${{ needs.list.outputs.version }}'
+        config_mod: .version := '${{ needs.list.outputs.version }}'
         platform: docker
         src: ${{ matrix.component.dir }}
         setup: push
