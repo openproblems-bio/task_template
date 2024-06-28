@@ -103,6 +103,14 @@ Be sure to update the `file_common_dataset.yaml` file with the correct informati
 
 To create the resources  and test_resources for the task we will create a nextflow workflow that will process the datasets. This workflow will be created together with the openproblems team.
 
+## README
+
+To create the task `README` file preform following command:
+
+```bash
+scripts/create_readme.sh
+```
+
 ## Benchmarking ([docs](https://openproblems.bio/documentation/create_task/create_workflow))
 
 When you are finished with creating your components and datset processor you can create a workflow to benchmark the components. This workflow will be created together with the openproblems team.
