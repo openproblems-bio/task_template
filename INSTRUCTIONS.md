@@ -21,6 +21,14 @@ A list of required software to start developing a new task can be found in the [
 * Update the `src/api/task_info.yaml` file with the information you have provided in the task issue.
 * Update the `<task_name>` in the `readme` field to the name of the task.
 
+### chmod `scripts`
+
+Make the scripts executable with the following command:
+
+```bash
+  chmod +x scripts/*
+```
+
 ### `common` submodule
 
 Initialize the `common` submodule by running the following command:
