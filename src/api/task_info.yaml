@@ -21,6 +21,12 @@ readme: |
   git clone git@github.com:openproblems-bio/task_<task-name>.git
 
   cd <task-name>
+
+  # make scripts executable
+  chmod +x scripts/*
+
+  # initialise submodule
+  scripts/init_submodule.sh
   
   # download resources
   scripts/download_resources.sh
