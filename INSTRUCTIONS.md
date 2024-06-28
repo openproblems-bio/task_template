@@ -72,7 +72,40 @@ For each type of component there already is a first component created that you c
 > [!NOTE]
 > You can remove the comments in the `config.vsh.yaml` file after you have updated the file.
 
+### Testing Components ([docs](https://openproblems.bio/documentation/create_component/run_tests))
 
+You can test the component by running the following command:
+
+```bash
+viash test /path/to/config.vsh.yaml
+```
+
+Y0u can also test all components by running the following command:
+
+```bash
+scripts/test_all_components.sh
+```
+
+It is possible to custumise the command in the above script by adding a `-q` argument to only perform the test on for example methods e.g. ` -q methods`.
+
+
+## Dataset processor ([docs](https://openproblems.bio/documentation/create_task/dataset_processor))
+
+The dataset processor is a script that removes all unnecesary info from the dataset for your task. This info is defined in the `api/file_common_dataset.yaml` file. From this filtered dataset several files are created that are used by the methods and metrics. Safeguarding data leaks and laking sure the structure of the data cannot be altered for a method or a metric.
+
+To create the dataprocessor there is no template available. You can follow the guideline in the documentation. Store the processor in the `src/process_dataset` folder.
+
+Be sure to update the `file_common_dataset.yaml` file with the correct information required for the methods/metrics.
+
+> [!IMPORTANT]
+> When using your own datasets please advise the openproblems team on how to add these datasets to the s3 bucket.
+> As the dataset processor should make use of the `common` datasets folder in the `resources` or `resources_test` directory.
+
+To create the resources  and test_resources for the task we will create a nextflow workflow that will process the datasets. This workflow will be created together with the openproblems team.
+
+## Benchmarking ([docs](https://openproblems.bio/documentation/create_task/create_workflow))
+
+When you are finished with creating your components and datset processor you can create a workflow to benchmark the components. This workflow will be created together with the openproblems team.
 
 
 
