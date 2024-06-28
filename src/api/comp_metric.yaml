@@ -23,7 +23,7 @@ test_resources:
   - type: python_script
     path: /common/comp_tests/check_metric_config.py
   - type: python_script
-    path: /common/comp_tests/run_and_check_adata.py
+    path: /common/component_tests/run_and_check_output.py
   - path: /common/library.bib
   #TODO: - path: fill in e.g. /resources/denoising/pancreas
   #TODO:   dest:  fill in e.g. resources/denoising/pancreas
