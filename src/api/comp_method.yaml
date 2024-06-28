@@ -7,7 +7,7 @@ info:
     description: |
       A method to predict the task effects.
 arguments:
-  - name: --train_h5ad
+  - name: --input_train
     __merge__: file_train_h5ad.yaml
     required: false
     direction: input

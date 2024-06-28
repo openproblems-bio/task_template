@@ -7,11 +7,11 @@ info:
     description: |
       A control method to predict effects.
 arguments:
-  - name: --train_h5ad
+  - name: --input_train
     __merge__: file_train_h5ad.yaml
     required: false
     direction: input
-  - name: --test_h5ad
+  - name: --input_test
     __merge__: file_test_h5ad.yaml
     required: true
     direction: input
