@@ -9,6 +9,11 @@ links:
   issue_tracker: https://github.com/openproblems-bio/task_<task_name>/issues
   repository: https://github.com/openproblems-bio/task_<task_name>
   docker_registry: ghcr.io/openproblems-bio
+info:
+  test_resources:
+    - type: s3
+      path: s3://openproblems-data/resources_test/<task_name>
+      dest: test_resources
 
 version: dev
 
