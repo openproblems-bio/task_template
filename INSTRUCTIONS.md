@@ -13,7 +13,7 @@ A list of required software to start developing a new task can be found in the [
 * Update the `name` field to the name of the task in snake_case.
 * Update the `description` field to a short description of the task.
 * Add a keyword to the `keywords` field that describes the task.
-* Update the `<task_name>` in the links/info field to the name of the task in snake_case.
+* Update the `<task_name>`/`task_template` in the links/info field to the name of the task in snake_case.
 
 ### `task_info.yaml`
 

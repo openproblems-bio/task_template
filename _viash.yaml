@@ -12,7 +12,7 @@ links:
 info:
   test_resources:
     - type: s3
-      path: s3://openproblems-data/resources_test/<task_name>
+      path: s3://openproblems-data/resources_test/task_template
       dest: test_resources
 
 version: dev
