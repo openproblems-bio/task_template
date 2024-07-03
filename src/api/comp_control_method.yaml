@@ -21,7 +21,7 @@ arguments:
     direction: output
 test_resources:
   - type: python_script
-    path: /common/src/component_tests/run_and_check_output.py
+    path: /common/component_tests/run_and_check_output.py
   - type: python_script
     path: /common/component_tests/check_method_config.py
   - path: /common/library.bib
