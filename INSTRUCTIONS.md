@@ -10,13 +10,12 @@ A list of required software to start developing a new task can be found in the [
 
 ### `_viash.yaml`
 
-* Update the `name` field to the name of the task in snake_case.
+* Update the `name` field to the name of the task in snake_case the nane should start with `task_`.
 * Update the `description` field to a short description of the task.
 * Add a keyword to the `keywords` field that describes the task.
-* Update the `<task_name>`/`task_template` in the links/info field to the name of the task in snake_case.
+* Update the `task_template` in the links/info field to the name of the task in snake_case.
 
 ### `task_info.yaml`
-
 
 * Update the `src/api/task_info.yaml` file with the information you have provided in the task issue.
 * Update the `<task_name>` in the `readme` field to the name of the task.
@@ -32,7 +31,7 @@ scripts/init_submodule.sh
 ## Resources
 
 The OpenProblems team has provided some test resources that can be used to test the task. These resources are stored in the `resources_test` folder. The `scripts/download_resources.sh` script can be used to download these resources.
-If these resources are not sufficient, you can add more resources to the `resources_test` folder. The `scripts/download_resources.sh` script can be updated to download these resources. When using new test_resources let the OP team know so they can be added to the s3 bucket.
+If these resources are not sufficient, you can add more resources to the `resources_test` folder. The `scripts/download_resources.sh` script can be updated to download these resources. When using new test resources let the OP team know so they can be added to the s3 bucket.
 
 ```bash	
 scripts/download_resources.sh

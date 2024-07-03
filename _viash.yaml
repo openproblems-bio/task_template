@@ -6,8 +6,8 @@ description: |
 license: MIT
 keywords: [single-cell, openproblems, benchmark]
 links:
-  issue_tracker: https://github.com/openproblems-bio/task_<task_name>/issues
-  repository: https://github.com/openproblems-bio/task_<task_name>
+  issue_tracker: https://github.com/openproblems-bio/task_template/issues
+  repository: https://github.com/openproblems-bio/task_template
   docker_registry: ghcr.io/openproblems-bio
 info:
   test_resources:
