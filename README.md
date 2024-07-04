@@ -25,12 +25,11 @@ The instructions below will guide you through creating a new repository from thi
 To clone the repository with the submodule files, you can use the following command:
 
 ```bash
-git clone --recurse-submodules git@github.com:openproblems-bio/<repo_name>.git
+git clone --recursive git@github.com:openproblems-bio/<repo_name>.git
 ```
-
 
 ## What to do next
 
-Check out the [instructions](INSTRUCTIONS.md) for more information on how to update the example files and components. These instructions also contain information on how to build out the task and basic commands.
+Check out the [instructions](common/INSTRUCTIONS.md) for more information on how to update the example files and components. These instructions also contain information on how to build out the task and basic commands.
 
-For more information on the OpenProblems v2, check out the [Documentation](https://openproblems.bio/documentation/) on the Open Problems website.
+For more information on the OpenProblems v2, check out the [Documentation](https://openproblems.bio/documentation/).
