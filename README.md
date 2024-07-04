@@ -20,6 +20,15 @@ The instructions below will guide you through creating a new repository from thi
 * Set the repository visibility to public.
 * Click "Create repository from template".
 
+## Clone the repository
+
+To clone the repository with the submodule files, you can use the following command:
+
+```bash
+git clone --recurse-submodules git@github.com:openproblems-bio/<repo_name>.git
+```
+
+
 ## What to do next
 
 Check out the [instructions](INSTRUCTIONS.md) for more information on how to update the example files and components. These instructions also contain information on how to build out the task and basic commands.
