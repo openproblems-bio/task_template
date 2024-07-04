@@ -2,52 +2,6 @@ name: A unique identifier. Can only contain lowercase letters, numbers or unders
 label: A unique, human-readable, short label. Used for creating summary tables and visualisations.
 summary: A one sentence summary of purpose and methodology. Used for creating an overview tables.
 image: The name of the image file to use for the component on the website.
-readme: |
-  ## Installation
-
-  You need to have Docker, Java, and Viash installed. Follow
-  [these instructions](https://openproblems.bio/documentation/fundamentals/requirements)
-  to install the required dependencies.
-
-  ## Add a method
-
-  To add a method to the repository, follow the instructions in the `scripts/add_a_method.sh` script.
-
-  ## Frequently used commands
-  
-  To get started, you can run the following commands:
-
-  ```bash
-  git clone git@github.com:openproblems-bio/task_<task-name>.git
-
-  cd <task-name>
-
-  # initialise submodule
-  scripts/init_submodule.sh
-  
-  # download resources
-  scripts/download_resources.sh
-  ```
-
-  To run the benchmark, you first need to build the components. Afterwards, you can run the benchmark:
-  
-  ```bash
-  viash ns build --parallel --setup cachedbuild
-
-  scripts/run_benchmark.sh
-  ```
-
-  After adding a component, it is recommended to run the tests to ensure that the component is working correctly:
-
-  ```bash
-  viash ns test --parallel
-  ```
-  
-  Optionally, you can provide the `--query` argument to test only a subset of components:
-
-  ```bash
-  viash ns test --parallel --query "component_name"
-  ```
 motivation: |
   Explain the motivation behind your proposed task. Describe the biological or computational 
   problem you aim to address and why it’s important. Discuss the current state of research in
