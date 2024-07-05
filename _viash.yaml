@@ -1,6 +1,7 @@
 viash_version: 0.9.0-RC6
 
 name: task_template
+organization: openproblems-bio
 description: |
   An OpenProblems benchmark task.
 license: MIT
@@ -8,7 +9,7 @@ keywords: [single-cell, openproblems, benchmark]
 links:
   issue_tracker: https://github.com/openproblems-bio/task_template/issues
   repository: https://github.com/openproblems-bio/task_template
-  docker_registry: ghcr.io/openproblems-bio
+  docker_registry: ghcr.io
 info:
   test_resources:
     - type: s3
