@@ -14,7 +14,10 @@ info:
   test_resources:
     - type: s3
       path: s3://openproblems-data/resources_test/task_template
-      dest: test_resources
+      dest: resources_test/task_template
+    - type: s3
+      path: s3://openproblems-data/resources_test/common/
+      dest: resources_test/common
 
 version: dev
 
