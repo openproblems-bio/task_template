@@ -30,5 +30,5 @@ test_resources:
   - type: python_script
     path: /common/component_tests/check_method_config.py
   - path: /common/library.bib
-  - path: /resources_test/task_template/cxg_mouse_pancreas_atlas
-    dest: resources_test/task_template/cxg_mouse_pancreas_atlas
+  - path: /resources_test/task_template/pancreas
+    dest: resources_test/task_template/pancreas
