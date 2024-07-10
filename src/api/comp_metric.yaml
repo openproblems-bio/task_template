@@ -25,5 +25,5 @@ test_resources:
   - type: python_script
     path: /common/component_tests/run_and_check_output.py
   - path: /common/library.bib
-  - path: /resources/task_template/pancreas
-    dest: resources/task_template/pancreas
+  - path: /resources_test/task_template/pancreas
+    dest: resources_test/task_template/pancreas
