@@ -16,11 +16,21 @@ links:
   issue_tracker: https://github.com/openproblems-bio/task_template/issues
   repository: https://github.com/openproblems-bio/task_template
   docker_registry: ghcr.io
+# Step 5: Update the 
 info:
-  summary:
-  motivation:
-  label:
-  image:
+  name: A unique identifier. Can only contain lowercase letters, numbers or underscores. (This is the same as the name above but without the `task_` prefix)
+  label: A unique, human-readable, short label. Used for creating summary tables and visualisations.
+  description: |
+    Provide a clear and concise description of your task, detailing the specific problem it aims
+    to solve. Outline the input data types, the expected output, and any assumptions or constraints.
+    Be sure to explain any terminology or concepts that are essential for understanding the task.
+  summary: A one sentence summary of purpose and methodology. Used for creating an overview tables.
+  motivation: |
+    Explain the motivation behind your proposed task. Describe the biological or computational 
+    problem you aim to address and why it’s important. Discuss the current state of research in
+    this area and any gaps or challenges that your task could help address. This section 
+    should convince readers of the significance and relevance of your task.
+  image: The name of the image file to use for the component on the website.
 
   test_resources:
     - type: s3
@@ -47,8 +57,6 @@ authors:
       email: ...
       twitter: ...
       linkedin: ...
-
-
 
 config_mods: |
   .runners[.type == "nextflow"].config.labels := { lowmem : "memory = 20.Gb", midmem : "memory = 50.Gb", highmem : "memory = 100.Gb", lowcpu : "cpus = 5", midcpu : "cpus = 15", highcpu : "cpus = 30", lowtime : "time = 1.h", midtime : "time = 4.h", hightime : "time = 8.h", veryhightime : "time = 24.h" }
