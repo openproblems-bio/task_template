@@ -3,13 +3,18 @@ info:
   type: control_method
   type_info:
     label: Control Method
-    summary: A control method.
+    summary: Quality control methods for verifying the pipeline.
     description: |
-      A control method to predict effects.
+      This folder contains control components for the task. 
+      These components have the same interface as the regular methods
+      but also receive the solution object as input. It serves as a
+      starting point to test the relative accuracy of new methods in
+      the task, and also as a quality control for the metrics defined
+      in the task.
 arguments:
   - name: --input_train
     __merge__: file_train_h5ad.yaml
-    required: false
+    required: true
     direction: input
   - name: --input_test
     __merge__: file_test_h5ad.yaml
@@ -25,5 +30,5 @@ test_resources:
   - type: python_script
     path: /common/component_tests/check_method_config.py
   - path: /common/library.bib
-  #TODO: - path: fill in e.g. /resources/denoising/pancreas
-  #TODO:   dest:  fill in e.g. resources/denoising/pancreas
+  - path: /resources_test/task_template/cxg_mouse_pancreas_atlas
+    dest: resources_test/task_template/cxg_mouse_pancreas_atlas
