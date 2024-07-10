@@ -8,35 +8,31 @@ __merge__: ../../api/comp_metric.yaml
 
 # A unique identifier for your component (required).
 # Can contain only lowercase letters or underscores.
-name: my_metric
+name: accuracy
 
 # Metadata for your component
 info:
   metrics:
     # A unique identifier for your metric (required).
     # Can contain only lowercase letters or underscores.
-    name: my_metric
-    # A relatively short label, used when rendering visualisarions (required)
-    label: My Metric
-    # A one sentence summary of how this metric works (required). Used when 
-    # rendering summary tables.
-    summary: "FILL IN: A one sentence summary of this metric."
-    # A multi-line description of how this component works (required). Used
-    # when rendering reference documentation.
-    description: |
-      FILL IN: A (multi-line) description of how this metric works.
-    # A reference key from the bibtex library at src/common/library.bib (required).
-    reference: bibtex_reference_key
-    # URL to the documentation for this metric (required).
-    documentation_url: https://url.to/the/documentation
-    # URL to the code repository for this metric (required).
-    repository_url: https://github.com/organisation/repository
-    # The minimum possible value for this metric (required)
-    min: 0
-    # The maximum possible value for this metric (required)
-    max: 1
-    # Whether a higher value represents a 'better' solution (required)
-    maximize: true
+    - name: accuracy
+      # A relatively short label, used when rendering visualisarions (required)
+      label: Accuracy
+      # A one sentence summary of how this metric works (required). Used when 
+      # rendering summary tables.
+      summary: "The percentage of correctly predicted labels."
+      # A multi-line description of how this component works (required). Used
+      # when rendering reference documentation.
+      description: |
+        The percentage of correctly predicted labels.
+      # A reference key from the bibtex library at src/common/library.bib (required).
+      reference: grandini2020metrics
+      # The minimum possible value for this metric (required)
+      min: 0
+      # The maximum possible value for this metric (required)
+      max: 1
+      # Whether a higher value represents a 'better' solution (required)
+      maximize: true
 
 # Component-specific parameters (optional)
 # arguments:
@@ -57,12 +53,12 @@ resources:
 engines:
   # Specifications for the Docker image for this component.
   - type: docker
-    image: ghcr.io/openproblems-bio/base_python:1.0.4
+    image: ghcr.io/openproblems-bio/base_images/python:1.1.0
     # Add custom dependencies here (optional). For more information, see
     # https://viash.io/reference/config/engines/docker/#setup .
-    # setup:
-    #   - type: python
-    #     packages: scib==1.1.5
+    setup:
+      - type: python
+        packages: scikit-learn
 
 runners:
   # This platform allows running the component natively
