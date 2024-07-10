@@ -20,6 +20,10 @@ arguments:
     __merge__: file_test_h5ad.yaml
     required: true
     direction: input
+  - name: "--input_solution"
+    __merge__: file_solution.yaml
+    direction: input
+    required: true
   - name: --output
     __merge__: file_prediction.yaml
     required: true
