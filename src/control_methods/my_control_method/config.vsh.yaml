@@ -8,20 +8,27 @@ __merge__: ../../api/comp_control_method.yaml
 
 # A unique identifier for your component (required).
 # Can contain only lowercase letters or underscores.
-name: my_control_method
+name: logistic_regression
 
 # Metadata for your component
 info:
   # A relatively short label, used when rendering visualisations (required)
-  label: My Control Method
+  label: Logistic Regression
   # A one sentence summary of how this method works (required). Used when 
   # rendering summary tables.
-  summary: "FILL IN: A one sentence summary of this method."
+  summary: "Logistic Regression with 100-dimensional PCA coordinates estimates parameters for multivariate classification by minimizing cross entropy loss over cell type classes."
   # A multi-line description of how this component works (required). Used
   # when rendering reference documentation.
   description: |
-    FILL IN: A (multi-line) description of how this method works.
-  # Which normalisation method this component prefers to use (required).
+    Logistic Regression estimates parameters of a logistic function for
+    multivariate classification tasks. Here, we use 100-dimensional whitened PCA
+    coordinates as independent variables, and the model minimises the cross
+    entropy loss over all cell type classes.
+  
+  reference: "hosmer2013applied"
+  repository_url: https://github.com/scikit-learn/scikit-learn
+  documentation_url: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html"
+  # Which normalization method this component prefers to use (required).
   preferred_normalization: log_cp10k
 
 # Component-specific parameters (optional)
@@ -43,12 +50,12 @@ resources:
 engines:
   # Specifications for the Docker image for this component.
   - type: docker
-    image: ghcr.io/openproblems-bio/base_python:1.0.4
+    image: ghcr.io/openproblems-bio/base_python:1.1.0
     # Add custom dependencies here (optional). For more information, see
     # https://viash.io/reference/config/engines/docker/#setup .
-    # setup:
-    #   - type: python
-    #     packages: scib==1.1.5
+    setup:
+      - type: python
+        packages: scikit-learn
 
 runners:
   # This platform allows running the component natively
@@ -56,4 +63,4 @@ runners:
   # Allows turning the component into a Nextflow module / pipeline.
   - type: nextflow
     directives:
-      label: [midtime,midmem,midcpu]
+      label: [midtime,midmem,lowcpu]
