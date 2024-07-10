@@ -9,8 +9,12 @@ info:
 arguments:
   - name: --input_train
     __merge__: file_train_h5ad.yaml
-    required: false
+    required: true
     direction: input
+  - name: "--input_test"
+    __merge__: file_test_h5ad.yaml
+    direction: input
+    required: true
   - name: --output
     __merge__: file_prediction.yaml
     required: true
@@ -21,5 +25,5 @@ test_resources:
   - type: python_script
     path: /common/component_tests/check_method_config.py
   - path: /common/library.bib
-  #TODO: - path: fill in e.g. /resources/denoising/pancreas
-  #TODO:   dest:  fill in e.g. resources/denoising/pancreas
+  - path: /resources_test/task_template/pancreas
+    dest: resources_test/task_template/pancreas
