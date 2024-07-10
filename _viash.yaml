@@ -16,7 +16,7 @@ links:
   issue_tracker: https://github.com/openproblems-bio/task_template/issues
   repository: https://github.com/openproblems-bio/task_template
   docker_registry: ghcr.io
-# Step 5: Update the 
+# Step 5: Update the info fields to the text from the task issue. 
 info:
   name: A unique identifier. Can only contain lowercase letters, numbers or underscores. (This is the same as the name above but without the `task_` prefix)
   label: A unique, human-readable, short label. Used for creating summary tables and visualisations.
@@ -31,7 +31,7 @@ info:
     this area and any gaps or challenges that your task could help address. This section 
     should convince readers of the significance and relevance of your task.
   image: The name of the image file to use for the component on the website.
-
+  # Step 6: Replace the task_template to the name of the task in `info.name`.
   test_resources:
     - type: s3
       path: s3://openproblems-data/resources_test/task_template
@@ -40,7 +40,7 @@ info:
       path: s3://openproblems-data/resources_test/common/
       dest: resources_test/common
 
-# Step 5: Update te authors of the task.
+# Step 7: Update te authors of the task.
 authors: 
   # Full name of the author, usually in the name of FirstName MiddleName LastName.
   - name: ... 
