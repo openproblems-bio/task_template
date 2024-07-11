@@ -34,7 +34,7 @@ info:
   # Step 6: Replace the task_template to the name of the task in `info.name`.
   test_resources:
     - type: s3
-      path: s3://openproblems-data/resources_test/task_template
+      path: s3://openproblems-data/resources_test/task_template/
       dest: resources_test/task_template
     - type: s3
       path: s3://openproblems-data/resources_test/common/
