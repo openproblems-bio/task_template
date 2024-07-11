@@ -1,5 +1,5 @@
 workflow auto {
-  findStatesTempWf(params, meta.config)
+  findStatesTemp(params, meta.config)
     | meta.workflow.run(
       auto: [publish: "state"]
     )
