@@ -4,7 +4,6 @@ set -e
 
 echo ">> Downloading resources"
 
-viash run common/src/sync_resources/config.vsh.yaml -- \
-  --input "s3://openproblems-data/resources_test/common/" \
-  --output "resources_test" \
+# the sync_resources script uses the test_resources S3 URI's in the _viash.yaml to download the resources.
+common/sync_resources/sync_resources \
   --delete

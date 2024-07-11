@@ -8,21 +8,21 @@ __merge__: ../../api/comp_control_method.yaml
 
 # A unique identifier for your component (required).
 # Can contain only lowercase letters or underscores.
-name: my_control_method
+name: true_labels
 
 # Metadata for your component
 info:
   # A relatively short label, used when rendering visualisations (required)
-  label: My Control Method
+  label: True Labels
   # A one sentence summary of how this method works (required). Used when 
   # rendering summary tables.
-  summary: "FILL IN: A one sentence summary of this method."
+  summary: "a positive control, solution labels are copied 1 to 1 to the predicted data."
   # A multi-line description of how this component works (required). Used
   # when rendering reference documentation.
   description: |
-    FILL IN: A (multi-line) description of how this method works.
+    A positive control, where the solution labels are copied 1 to 1 to the predicted data.
   # Which normalisation method this component prefers to use (required).
-  preferred_normalization: log_cp10k
+  preferred_normalization: counts
 
 # Component-specific parameters (optional)
 # arguments:
@@ -43,7 +43,7 @@ resources:
 engines:
   # Specifications for the Docker image for this component.
   - type: docker
-    image: ghcr.io/openproblems-bio/base_python:1.0.4
+    image: ghcr.io/openproblems-bio/base_images/python:1.1.0
     # Add custom dependencies here (optional). For more information, see
     # https://viash.io/reference/config/engines/docker/#setup .
     # setup:
@@ -56,4 +56,4 @@ runners:
   # Allows turning the component into a Nextflow module / pipeline.
   - type: nextflow
     directives:
-      label: [midtime,midmem,midcpu]
+      label: [midtime,lowmem,lowcpu]

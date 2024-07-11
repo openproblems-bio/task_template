@@ -3,12 +3,12 @@ info:
   type: metric
   type_info:
     label: Metric
-    summary: A metric.
+    summary: A task template metric.
     description: |
       A metric for evaluating method predictions.
 arguments:
-  - name: "--input_test"
-    __merge__: file_test_h5ad.yaml
+  - name: "--input_solution"
+    __merge__: file_solution.yaml
     direction: input
     required: true
   - name: "--input_prediction"
@@ -21,9 +21,9 @@ arguments:
     required: true
 test_resources:
   - type: python_script
-    path: /common/comp_tests/check_metric_config.py
+    path: /common/component_tests/check_metric_config.py
   - type: python_script
-    path: /common/comp_tests/run_and_check_adata.py
+    path: /common/component_tests/run_and_check_output.py
   - path: /common/library.bib
-  #TODO: - path: fill in e.g. /resources/denoising/pancreas
-  #TODO:   dest:  fill in e.g. resources/denoising/pancreas
+  - path: /resources_test/task_template/pancreas
+    dest: resources_test/task_template/pancreas
