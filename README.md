@@ -32,6 +32,6 @@ git clone --recursive git@github.com:openproblems-bio/<repo_name>.git
 
 ## What to do next
 
-Check out the [instructions](common/INSTRUCTIONS.md) for more information on how to update the example files and components. These instructions also contain information on how to build out the task and basic commands.
+Check out the [instructions]([common/INSTRUCTIONS.md](https://github.com/openproblems-bio/common_resources/blob/main/INSTRUCTIONS.md)) for more information on how to update the example files and components. These instructions also contain information on how to build out the task and basic commands.
 
-For more information on the OpenProblems v2, check out the [Documentation](https://openproblems.bio/documentation/).
+For more information on the OpenProblems v2, check out the [documentation](https://openproblems.bio/documentation/).
