@@ -26,9 +26,16 @@ resources:
     path: main.nf
     entrypoint: run_wf
   - path: /common/nextflow_helpers/helper.nf
+repositories:
+  - name: openproblems-v2
+    type: github
+    repo: openproblems-bio/openproblems-v2
+    tag: main_build
 dependencies:
   - name: common/check_dataset_schema
+    repository: openproblems-v2
   - name: common/extract_metadata
-  - name: predict_modality/process_dataset
+    repository: openproblems-v2
+  - name: data_processors/process_dataset
 runners:
   - type: nextflow
