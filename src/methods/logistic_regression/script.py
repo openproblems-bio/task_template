@@ -41,4 +41,6 @@ output = ad.AnnData(
     'label_pred': obs_label_pred
   }
 )
+output.obs_names = input_test.obs_names
+
 output.write_h5ad(par['output'], compression='gzip')
