@@ -161,7 +161,7 @@ workflow run_wf {
       metric_configs_file.write(metric_configs_yaml_blob)
 
       def viash_file = meta.resources_dir.resolve("_viash.yaml")
-      def viash_file_content = toYamlBlob(readYaml(viash_file).info)
+      def viash_file_content = toYamlBlob(readYaml(viash_file))
       def task_info_file = tempFile("task_info.yaml")
       task_info_file.write(viash_file_content)
 
