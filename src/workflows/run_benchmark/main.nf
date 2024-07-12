@@ -160,10 +160,7 @@ workflow run_wf {
       def metric_configs_file = tempFile("metric_configs.yaml")
       metric_configs_file.write(metric_configs_yaml_blob)
 
-      def viash_file = meta.resources_dir.resolve("_viash.yaml")
-      def viash_file_content = toYamlBlob(readYaml(viash_file))
-      def task_info_file = tempFile("task_info.yaml")
-      task_info_file.write(viash_file_content)
+      def task_info_file = meta.resources_dir.resolve("_viash.yaml")
 
       // store the scores in a file
       def score_uns = states.collect{it.score_uns}
