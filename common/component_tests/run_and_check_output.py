@@ -88,24 +88,36 @@ def run_and_check_outputs(arguments, cmd):
     print("All checks succeeded!", flush=True)
 
 
+def process_argument(argument: dict) -> dict:
+    argument["clean_name"] = argument["name"].removeprefix("-").removeprefix("-")
+    return argument
+
 # read viash config
 with open(meta["config"], "r") as file:
     config = yaml.safe_load(file)
 
+arggroup_args = []
+standalone_args = []
+# process arguments
+if "argument_groups" in config:
+    arggroup_args = [
+        process_argument(arg)
+        for arg_group in config["argument_groups"]
+        for arg in arg_group["arguments"]
+    ]
+if "arguments" in config:
+    standalone_args = [
+        process_argument(arg)
+        for arg in config["arguments"]
+    ]
+config["all_arguments"] = arggroup_args + standalone_args
+
 # get resources
 arguments = []
 
-for arg_grp in config["argument_groups"]:
-    if arg_grp.get("name") == "Arguments":
-        args = arg_grp["arguments"]
-
-for arg in args:
+for arg in config["all_arguments"]:
     new_arg = arg.copy()
     arg_info = new_arg.get("info") or {}
-
-    # set clean name
-    clean_name = re.sub("^--", "", arg["name"])
-    new_arg["clean_name"] = clean_name
 
     # use example to find test resource file
     if arg["type"] == "file":
@@ -115,9 +127,9 @@ for arg in args:
             example = arg.get("example", ["example"])[0]
             ext_res = re.search(r"\.(\w+)$", example)
             if ext_res:
-                value = f"{clean_name}.{ext_res.group(1)}"
+                value = f"{arg['clean_name']}.{ext_res.group(1)}"
             else:
-                value = f"{clean_name}"
+                value = f"{arg['clean_name']}"
         new_arg["value"] = value
     elif "test_default" in arg_info:
         new_arg["value"] = arg_info["test_default"]
