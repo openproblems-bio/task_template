@@ -6,8 +6,6 @@ name: task_template
 organization: openproblems-bio
 version: dev
 # Step 2: Update the description to a short description of the task.
-description: |
-  An OpenProblems benchmark task.
 license: MIT
 # Step 3: Add keywords to describe the task.
 keywords: [single-cell, openproblems, benchmark]
@@ -17,19 +15,21 @@ links:
   repository: https://github.com/openproblems-bio/task_template
   docker_registry: ghcr.io
 # Step 5: Update the info fields to the text from the task issue. 
+
+# A unique, human-readable, short label. Used for creating summary tables and visualisations.
+label: Template
+summary: A one sentence summary of purpose and methodology. Used for creating an overview tables.
+description: |
+  Provide a clear and concise description of your task, detailing the specific problem it aims
+  to solve. Outline the input data types, the expected output, and any assumptions or constraints.
+  Be sure to explain any terminology or concepts that are essential for understanding the task.
+
+  Explain the motivation behind your proposed task. Describe the biological or computational 
+  problem you aim to address and why it's important. Discuss the current state of research in
+  this area and any gaps or challenges that your task could help address. This section 
+  should convince readers of the significance and relevance of your task.
+  
 info:
-  # A unique, human-readable, short label. Used for creating summary tables and visualisations.
-  label: Template
-  description: |
-    Provide a clear and concise description of your task, detailing the specific problem it aims
-    to solve. Outline the input data types, the expected output, and any assumptions or constraints.
-    Be sure to explain any terminology or concepts that are essential for understanding the task.
-  summary: A one sentence summary of purpose and methodology. Used for creating an overview tables.
-  motivation: |
-    Explain the motivation behind your proposed task. Describe the biological or computational 
-    problem you aim to address and why it’s important. Discuss the current state of research in
-    this area and any gaps or challenges that your task could help address. This section 
-    should convince readers of the significance and relevance of your task.
   image: The name of the image file to use for the component on the website.
   # Step 6: Replace the task_template to the name of the task in `info.name`.
   test_resources:
@@ -43,7 +43,7 @@ info:
 # Step 7: Update the authors of the task.
 authors: 
   # Full name of the author, usually in the name of FirstName MiddleName LastName.
-  - name: Kai Waldrant 
+  - name: John Doe
     # Role of the author. Possible values:
     # 
     # * `"author"`: Authors who have made substantial contributions to the component.
@@ -52,11 +52,12 @@ authors:
     roles: [ "author", "maintainer" ]
     # Additional information on the author
     info: 
-      github: KaiWaldrant
-      orcid: 0009-0003-8555-1361
-      email: ...
-      twitter: ...
-      linkedin: ...
+      github: johndoe
+      orcid: 0000-0000-0000-0000
+      email: john@doe.me
+      twitter: johndoe
+      linkedin: johndoe
+
 # Step 8: Remove all of the comments of the steps you completed
 # Step 9: High five yourself!
 
