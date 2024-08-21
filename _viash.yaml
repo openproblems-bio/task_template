@@ -28,6 +28,20 @@ description: |
   problem you aim to address and why it's important. Discuss the current state of research in
   this area and any gaps or challenges that your task could help address. This section 
   should convince readers of the significance and relevance of your task.
+# A list of references to relevant literature. Each reference should be a DOI or a bibtex entry
+references:
+  doi:
+    - 10.21203/rs.3.rs-4181617/v1
+  # bibtex:
+  #   - |
+  #     @article{doe_2021_template,
+  #       doi = {10.21203/rs.3.rs-4181617/v1},
+  #       url = {https://doi.org/10.21203/rs.3.rs-4181617/v1},
+  #       author = {Doe, John},
+  #       title = {A template for creating new tasks},
+  #       publisher = {Research Square},
+  #       year = {2021},
+  #     }
   
 info:
   image: The name of the image file to use for the component on the website.
