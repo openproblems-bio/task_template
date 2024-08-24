@@ -15,8 +15,8 @@ par = {
     'output_solution': 'solution.h5ad'
 }
 meta = {
-    'resources_dir': 'data_processors/process_dataset',
-    'config': 'data_processors/process_dataset/.config.vsh.yaml'
+    'resources_dir': 'target/executable/data_processors/process_dataset',
+    'config': 'target/executable/data_processors/process_dataset/.config.vsh.yaml'
 }
 ## VIASH END
 
