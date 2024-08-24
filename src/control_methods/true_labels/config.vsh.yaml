@@ -18,10 +18,10 @@ summary: "a positive control, solution labels are copied 1 to 1 to the predicted
 # when rendering reference documentation.
 description: |
   A positive control, where the solution labels are copied 1 to 1 to the predicted data.
-# Which normalisation method this component prefers to use (required).
 
 # Metadata for your component
 info:
+  # Which normalisation method this component prefers to use (required).
   preferred_normalization: counts
 
 # Component-specific parameters (optional)
@@ -43,7 +43,7 @@ resources:
 engines:
   # Specifications for the Docker image for this component.
   - type: docker
-    image: ghcr.io/openproblems-bio/base_images/python:1.1.0
+    image: openproblems/base_python:1.0.0
     # Add custom dependencies here (optional). For more information, see
     # https://viash.io/reference/config/engines/docker/#setup .
     # setup:
@@ -56,4 +56,4 @@ runners:
   # Allows turning the component into a Nextflow module / pipeline.
   - type: nextflow
     directives:
-      label: [midtime,lowmem,lowcpu]
+      label: [midtime, lowmem, lowcpu]

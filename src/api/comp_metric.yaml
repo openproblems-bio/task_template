@@ -23,7 +23,6 @@ test_resources:
   - type: python_script
     path: /common/component_tests/check_metric_config.py
   - type: python_script
-    path: /common/component_tests/run_and_check_output.py
-  - path: /common/library.bib
+    path: /common/component_tests/check_config.py
   - path: /resources_test/task_template/pancreas
     dest: resources_test/task_template/pancreas
