@@ -21,7 +21,7 @@ arguments:
 resources:
   - type: python_script
     path: script.py
-  - path: /common/helper_functions/subset_anndata.py
+  - path: /common/helper_functions/subset_h5ad_by_format.py
 
 engines:
   - type: docker
