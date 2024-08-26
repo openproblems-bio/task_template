@@ -26,7 +26,8 @@ info:
       description: |
         The percentage of correctly predicted labels.
       # A reference key from the bibtex library at src/common/library.bib (required).
-      reference: grandini2020metrics
+      references:
+        doi: 10.48550/arXiv.2008.05756
       # The minimum possible value for this metric (required)
       min: 0
       # The maximum possible value for this metric (required)
@@ -53,7 +54,7 @@ resources:
 engines:
   # Specifications for the Docker image for this component.
   - type: docker
-    image: ghcr.io/openproblems-bio/base_images/python:1.1.0
+    image: openproblems/base_python:1.0.0
     # Add custom dependencies here (optional). For more information, see
     # https://viash.io/reference/config/engines/docker/#setup .
     setup:
@@ -66,4 +67,4 @@ runners:
   # Allows turning the component into a Nextflow module / pipeline.
   - type: nextflow
     directives:
-      label: [midtime,midmem,midcpu]
+      label: [midtime, midmem, midcpu]

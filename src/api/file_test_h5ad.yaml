@@ -1,10 +1,11 @@
 #TODO: Change to the required and/or optional fields of the anndata
 type: file
 example: "resources_test/task_template/pancreas/test.h5ad"
+label: "Test data"
+summary: The subset of molecules used for the test dataset
 info:
-  label: "Test data"
-  summary: The subset of molecules used for the test dataset
-  slots:
+  format:
+    type: h5ad
     layers: 
       - type: integer
         name: counts

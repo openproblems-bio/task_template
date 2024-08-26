@@ -61,11 +61,6 @@ resources:
   - type: file
     path: /_viash.yaml
 
-repositories:
-  - name: openproblems-v2
-    type: github
-    repo: openproblems-bio/openproblems-v2
-    tag: main_build
 dependencies:
   - name: common/check_dataset_schema
     repository: openproblems-v2

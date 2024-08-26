@@ -16,6 +16,8 @@
 
 * Updated `api` files (PR #5).
 
+* Updated configs, components and CI to the latest Viash version (PR #8).
+
 ## MINOR CHANGES
 
 * Updated `README.md` (PR #5).

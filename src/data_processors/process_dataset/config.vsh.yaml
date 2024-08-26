@@ -21,14 +21,14 @@ arguments:
 resources:
   - type: python_script
     path: script.py
-  - path: /common/helper_functions/subset_anndata.py
+  - path: /common/helper_functions/subset_h5ad_by_format.py
 
 engines:
   - type: docker
-    image: ghcr.io/openproblems-bio/base_images/python:1.1.0
+    image: openproblems/base_python:1.0.0
 
 runners:
   - type: executable
   - type: nextflow
     directives:
-      label: [highmem,midcpu,midtime]
+      label: [highmem, midcpu, midtime]
