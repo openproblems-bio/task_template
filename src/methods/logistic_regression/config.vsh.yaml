@@ -9,25 +9,34 @@ __merge__: ../../api/comp_method.yaml
 # A unique identifier for your component (required).
 # Can contain only lowercase letters or underscores.
 name: logistic_regression
-
+# A relatively short label, used when rendering visualisations (required)
+label: Logistic Regression
+# A one sentence summary of how this method works (required). Used when 
+# rendering summary tables.
+summary: "Logistic Regression with 100-dimensional PCA coordinates estimates parameters for multivariate classification by minimizing cross entropy loss over cell type classes."
+# A multi-line description of how this component works (required). Used
+# when rendering reference documentation.
+description: |
+  Logistic Regression estimates parameters of a logistic function for
+  multivariate classification tasks. Here, we use 100-dimensional whitened PCA
+  coordinates as independent variables, and the model minimises the cross
+  entropy loss over all cell type classes.
 # Metadata for your component
+# A reference key from the bibtex library at src/common/library.bib (required).
+references:
+  bibtex: 
+    - |
+      @book{hosmer2013applied,
+        title = {Applied logistic regression},
+        author = {Hosmer Jr, D.W. and Lemeshow, S. and Sturdivant, R.X.},
+        year = {2013},
+        publisher = {John Wiley \& Sons},
+        volume = {398}
+      }
 info:
-  # A relatively short label, used when rendering visualisations (required)
-  label: Logistic Regression
-  # A one sentence summary of how this method works (required). Used when 
-  # rendering summary tables.
-  summary: "Logistic Regression with 100-dimensional PCA coordinates estimates parameters for multivariate classification by minimizing cross entropy loss over cell type classes."
-  # A multi-line description of how this component works (required). Used
-  # when rendering reference documentation.
-  description: |
-    Logistic Regression estimates parameters of a logistic function for
-    multivariate classification tasks. Here, we use 100-dimensional whitened PCA
-    coordinates as independent variables, and the model minimises the cross
-    entropy loss over all cell type classes.
+
   # Which normalisation method this component prefers to use (required).
   preferred_normalization: log_cp10k
-  # A reference key from the bibtex library at src/common/library.bib (required).
-  reference: "hosmer2013applied"
   # URL to the documentation for this method (required).
   documentation_url: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html"
   # URL to the code repository for this method (required).
@@ -52,7 +61,7 @@ resources:
 engines:
   # Specifications for the Docker image for this component.
   - type: docker
-    image: ghcr.io/openproblems-bio/base_images/python:1.1.0
+    image: openproblems/base_python:1.0.0
     # Add custom dependencies here (optional). For more information, see
     # https://viash.io/reference/config/engines/docker/#setup .
     setup:
@@ -65,4 +74,4 @@ runners:
   # Allows turning the component into a Nextflow module / pipeline.
   - type: nextflow
     directives:
-      label: [midtime,midmem,lowcpu]
+      label: [midtime, midmem, lowcpu]

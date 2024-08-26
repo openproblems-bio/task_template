@@ -1,10 +1,11 @@
 #TODO: Change to the required and/or optional fields of the anndata
 type: file
 example: "resources_test/task_template/pancreas/prediction.h5ad"
+label: "Predicted data"
+summary: A predicted dataset as output by a method.
 info:
-  label: "Predicted data"
-  summary: A predicted dataset as output by a method.
-  slots:
+  format:
+    type: h5ad
     obs:
       - type: string
         name: label_pred
