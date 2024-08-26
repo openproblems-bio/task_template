@@ -26,7 +26,8 @@ info:
       description: |
         The percentage of correctly predicted labels.
       # A reference key from the bibtex library at src/common/library.bib (required).
-      reference: grandini2020metrics
+      references:
+        doi: 10.48550/arXiv.2008.05756
       # The minimum possible value for this metric (required)
       min: 0
       # The maximum possible value for this metric (required)
