@@ -3047,8 +3047,6 @@ meta = [
   ],
   "info" : {
     "preferred_normalization" : "log_cp10k",
-    "documentation_url" : "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html",
-    "repository_url" : "https://github.com/scikit-learn/scikit-learn",
     "type" : "method",
     "type_info" : {
       "label" : "Method",
@@ -3072,8 +3070,9 @@ meta = [
     ]
   },
   "links" : {
-    "repository" : "https://github.com/openproblems-bio/task_template",
-    "docker_registry" : "ghcr.io"
+    "repository" : "https://github.com/scikit-learn/scikit-learn",
+    "docker_registry" : "ghcr.io",
+    "documentation" : "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html"
   },
   "runners" : [
     {
@@ -3140,7 +3139,7 @@ meta = [
     "engine" : "docker",
     "output" : "target/nextflow/methods/logistic_regression",
     "viash_version" : "0.9.0-RC7",
-    "git_commit" : "dbc992a1f16dc23d69af550703f56c4419d180c9",
+    "git_commit" : "1f0e346cbaae4c460ec8cbaa5a4c08b49d3a6ec6",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {

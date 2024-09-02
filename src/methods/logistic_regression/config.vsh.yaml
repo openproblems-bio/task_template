@@ -33,14 +33,16 @@ references:
         publisher = {John Wiley \& Sons},
         volume = {398}
       }
-info:
 
+links:
+  # URL to the code repository for this method (required).
+  repository: https://github.com/scikit-learn/scikit-learn
+  # URL to the documentation for this method (required).
+  documentation: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html"
+
+info:
   # Which normalisation method this component prefers to use (required).
   preferred_normalization: log_cp10k
-  # URL to the documentation for this method (required).
-  documentation_url: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html"
-  # URL to the code repository for this method (required).
-  repository_url: https://github.com/scikit-learn/scikit-learn
 
 # Component-specific parameters (optional)
 # arguments:
