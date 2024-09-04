@@ -28,7 +28,7 @@ publish_dir="resources/results/${RUN_ID}"
 # write the parameters to file
 cat > /tmp/params.yaml << HERE
 input_states: resources/datasets/**/state.yaml
-rename_keys: 'input_train:output_train;input_test:output_test,input_solution:output_solution'
+rename_keys: 'input_train:output_train;input_test:output_test;input_solution:output_solution'
 output_state: "state.yaml"
 publish_dir: "$publish_dir"
 HERE
