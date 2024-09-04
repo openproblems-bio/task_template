@@ -3,4 +3,4 @@
 set -e
 
 # Build all components in a namespace (refer https://viash.io/reference/cli/ns_build.html)
-viash ns test --parallel
+viash ns build --parallel
