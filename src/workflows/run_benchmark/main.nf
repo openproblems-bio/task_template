@@ -5,22 +5,22 @@ workflow auto {
     )
 }
 
+// construct list of methods and control methods
+methods = [
+  true_labels,
+  logistic_regression
+]
+
+// construct list of metrics
+metrics = [
+  accuracy
+]
+
 workflow run_wf {
   take:
   input_ch
 
   main:
-
-  // construct list of methods
-  methods = [
-    true_labels,
-    logistic_regression
-  ]
-
-  // construct list of metrics
-  metrics = [
-    accuracy
-  ]
 
   /****************************
    * EXTRACT DATASET METADATA *
