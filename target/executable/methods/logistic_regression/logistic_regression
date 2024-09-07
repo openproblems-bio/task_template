@@ -471,9 +471,9 @@ RUN pip install --upgrade pip && \
   pip install --upgrade --no-cache-dir "scikit-learn"
 
 LABEL org.opencontainers.image.description="Companion container for running component methods logistic_regression"
-LABEL org.opencontainers.image.created="2024-09-04T15:11:56Z"
+LABEL org.opencontainers.image.created="2024-09-07T15:53:29Z"
 LABEL org.opencontainers.image.source="https://github.com/scikit-learn/scikit-learn"
-LABEL org.opencontainers.image.revision="bc461ca60315874aa3d841d9ce0b435351822964"
+LABEL org.opencontainers.image.revision="405ea6275fc2aabcb068f9f006f548b1c7f5363d"
 LABEL org.opencontainers.image.version="build_main"
 
 VIASHDOCKER

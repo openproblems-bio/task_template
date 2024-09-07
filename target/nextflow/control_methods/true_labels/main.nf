@@ -3184,9 +3184,10 @@ meta = [
   "repositories" : [
     {
       "type" : "github",
-      "name" : "openproblems-v2",
-      "repo" : "openproblems-bio/openproblems-v2",
-      "tag" : "main_build"
+      "name" : "core",
+      "repo" : "openproblems-bio/core",
+      "tag" : "build/main",
+      "path" : "viash/core"
     }
   ],
   "license" : "MIT",
@@ -3249,7 +3250,7 @@ meta = [
     "engine" : "docker",
     "output" : "target/nextflow/control_methods/true_labels",
     "viash_version" : "0.9.0",
-    "git_commit" : "bc461ca60315874aa3d841d9ce0b435351822964",
+    "git_commit" : "405ea6275fc2aabcb068f9f006f548b1c7f5363d",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {
@@ -3276,9 +3277,10 @@ meta = [
     "repositories" : [
       {
         "type" : "github",
-        "name" : "openproblems-v2",
-        "repo" : "openproblems-bio/openproblems-v2",
-        "tag" : "main_build"
+        "name" : "core",
+        "repo" : "openproblems-bio/core",
+        "tag" : "build/main",
+        "path" : "viash/core"
       }
     ],
     "viash_version" : "0.9.0",
