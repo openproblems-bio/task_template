@@ -62,10 +62,8 @@ resources:
     path: /_viash.yaml
 
 dependencies:
-  - name: common/check_dataset_schema
-    repository: openproblems-v2
-  - name: common/extract_metadata
-    repository: openproblems-v2
+  - name: h5ad/extract_uns_metadata
+    repository: core
   - name: control_methods/true_labels
   - name: methods/logistic_regression
   - name: metrics/accuracy

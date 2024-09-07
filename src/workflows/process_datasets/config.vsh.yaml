@@ -30,10 +30,8 @@ resources:
   - path: /common/nextflow_helpers/helper.nf
 
 dependencies:
-  - name: common/check_dataset_schema
-    repository: openproblems-v2
-  - name: common/extract_metadata
-    repository: openproblems-v2
+  - name: schema/verify_data_structure
+    repository: core
   - name: data_processors/process_dataset
 
 runners:
