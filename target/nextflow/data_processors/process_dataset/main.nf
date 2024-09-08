@@ -3369,7 +3369,7 @@ meta = [
     "engine" : "docker",
     "output" : "target/nextflow/data_processors/process_dataset",
     "viash_version" : "0.9.0",
-    "git_commit" : "405ea6275fc2aabcb068f9f006f548b1c7f5363d",
+    "git_commit" : "e52d07e2e4f49a273a0296b3d9f3a3460cc05792",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {

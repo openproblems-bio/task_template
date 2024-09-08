@@ -21,6 +21,9 @@ exit 1
 
 set -e
 
+echo "Running benchmark on test data"
+echo "  Make sure to run 'scripts/project/build_all_docker_containers.sh'!"
+
 # generate a unique id
 RUN_ID="run_$(date +%Y-%m-%d_%H-%M-%S)"
 publish_dir="resources/results/${RUN_ID}"
@@ -40,5 +43,5 @@ nextflow run openproblems-bio/task_template \
   -profile docker \
   -resume \
   -entry auto \
-  -c common/nextflow_helpers/labels.config \
+  -c common/nextflow_helpers/labels_ci.config \
   -params-file /tmp/params.yaml
