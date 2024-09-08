@@ -2,7 +2,7 @@
 
 repository="openproblems-bio/core"
 version="29bce6c6cc8dfc5a016eae9dc7babf76d25084cb"
-component="sync_resources"
+component="project/sync_resources"
 
 cache_dir="$HOME/.cache/openproblems/repos/$repository"
 executable_path="viash/core/target/executable/${component}/$(basename ${component})"
