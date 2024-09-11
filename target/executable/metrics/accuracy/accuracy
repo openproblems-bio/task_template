@@ -466,9 +466,9 @@ RUN pip install --upgrade pip && \
   pip install --upgrade --no-cache-dir "scikit-learn"
 
 LABEL org.opencontainers.image.description="Companion container for running component metrics accuracy"
-LABEL org.opencontainers.image.created="2024-09-11T03:39:34Z"
+LABEL org.opencontainers.image.created="2024-09-11T04:29:06Z"
 LABEL org.opencontainers.image.source="https://github.com/openproblems-bio/task_template"
-LABEL org.opencontainers.image.revision="55133fa12e8489c8f3ede82a5ca2aa80d1c7c20d"
+LABEL org.opencontainers.image.revision="8871e398f0a4a956ddcabc48aaba6be40b72ac22"
 LABEL org.opencontainers.image.version="build_main"
 
 VIASHDOCKER
