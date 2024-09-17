@@ -176,15 +176,18 @@ function ViashHelp {
   echo "Arguments:"
   echo "    --input_solution"
   echo "        type: file, required parameter, file must exist"
-  echo "        example: resources_test/task_template/pancreas/solution.h5ad"
+  echo "        example:"
+  echo "resources_test/task_template/cxg_mouse_pancreas_atlas/solution.h5ad"
   echo ""
   echo "    --input_prediction"
   echo "        type: file, required parameter, file must exist"
-  echo "        example: resources_test/task_template/pancreas/prediction.h5ad"
+  echo "        example:"
+  echo "resources_test/task_template/cxg_mouse_pancreas_atlas/prediction.h5ad"
   echo ""
   echo "    --output"
   echo "        type: file, required parameter, output, file must exist"
-  echo "        example: resources/score.h5ad"
+  echo "        example:"
+  echo "resources_test/task_template/cxg_mouse_pancreas_atlas/score.h5ad"
 }
 
 # initialise variables
@@ -466,9 +469,9 @@ RUN pip install --upgrade pip && \
   pip install --upgrade --no-cache-dir "scikit-learn"
 
 LABEL org.opencontainers.image.description="Companion container for running component metrics accuracy"
-LABEL org.opencontainers.image.created="2024-09-17T07:06:59Z"
+LABEL org.opencontainers.image.created="2024-09-17T10:18:02Z"
 LABEL org.opencontainers.image.source="https://github.com/openproblems-bio/task_template"
-LABEL org.opencontainers.image.revision="0b9f73604cf9d6b6c9a2381a5ed2a159732936d8"
+LABEL org.opencontainers.image.revision="a6f8b50bc9c71231f17b709ce1c7a23be23d6a49"
 LABEL org.opencontainers.image.version="build_main"
 
 VIASHDOCKER

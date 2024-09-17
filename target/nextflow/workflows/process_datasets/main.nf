@@ -2922,7 +2922,7 @@ meta = [
             }
           },
           "example" : [
-            "resources_test/common/pancreas/dataset.h5ad"
+            "resources_test/common/cxg_mouse_pancreas_atlas/dataset.h5ad"
           ],
           "must_exist" : true,
           "create_parent" : true,
@@ -3011,7 +3011,7 @@ meta = [
             }
           },
           "example" : [
-            "resources_test/task_template/pancreas/train.h5ad"
+            "resources_test/task_template/cxg_mouse_pancreas_atlas/train.h5ad"
           ],
           "must_exist" : true,
           "create_parent" : true,
@@ -3089,7 +3089,7 @@ meta = [
             }
           },
           "example" : [
-            "resources_test/task_template/pancreas/test.h5ad"
+            "resources_test/task_template/cxg_mouse_pancreas_atlas/test.h5ad"
           ],
           "must_exist" : true,
           "create_parent" : true,
@@ -3209,7 +3209,7 @@ meta = [
             }
           },
           "example" : [
-            "resources_test/task_template/pancreas/solution.h5ad"
+            "resources_test/task_template/cxg_mouse_pancreas_atlas/solution.h5ad"
           ],
           "must_exist" : true,
           "create_parent" : true,
@@ -3308,7 +3308,7 @@ meta = [
     "engine" : "native",
     "output" : "target/nextflow/workflows/process_datasets",
     "viash_version" : "0.9.0",
-    "git_commit" : "0b9f73604cf9d6b6c9a2381a5ed2a159732936d8",
+    "git_commit" : "a6f8b50bc9c71231f17b709ce1c7a23be23d6a49",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {
@@ -3322,13 +3322,13 @@ meta = [
       "test_resources" : [
         {
           "type" : "s3",
-          "path" : "s3://openproblems-data/resources_test/task_template/",
-          "dest" : "resources_test/task_template"
+          "path" : "s3://openproblems-data/resources_test/common/",
+          "dest" : "resources_test/common"
         },
         {
           "type" : "s3",
-          "path" : "s3://openproblems-data/resources_test/common/",
-          "dest" : "resources_test/common"
+          "path" : "s3://openproblems-data/resources_test/task_template/",
+          "dest" : "resources_test/task_template"
         }
       ]
     },
@@ -3394,7 +3394,7 @@ include { process_dataset } from "${meta.resources_dir}/../../../nextflow/data_p
 include { findArgumentSchema } from "${meta.resources_dir}/helper.nf"
 
 workflow auto {
-  findStatesTemp(params, meta.config)
+  findStates(params, meta.config)
     | meta.workflow.run(
       auto: [publish: "state"]
     )
@@ -3445,124 +3445,6 @@ workflow run_wf {
 
   emit:
   output_ch
-}
-
-
-// temp fix for rename_keys typo
-
-def findStatesTemp(Map params, Map config) {
-  def auto_config = deepClone(config)
-  def auto_params = deepClone(params)
-
-  auto_config = auto_config.clone()
-  // override arguments
-  auto_config.argument_groups = []
-  auto_config.arguments = [
-    [
-      type: "string",
-      name: "--id",
-      description: "A dummy identifier",
-      required: false
-    ],
-    [
-      type: "file",
-      name: "--input_states",
-      example: "/path/to/input/directory/**/state.yaml",
-      description: "Path to input directory containing the datasets to be integrated.",
-      required: true,
-      multiple: true,
-      multiple_sep: ";"
-    ],
-    [
-      type: "string",
-      name: "--filter",
-      example: "foo/.*/state.yaml",
-      description: "Regex to filter state files by path.",
-      required: false
-    ],
-    // to do: make this a yaml blob?
-    [
-      type: "string",
-      name: "--rename_keys",
-      example: ["newKey1:oldKey1", "newKey2:oldKey2"],
-      description: "Rename keys in the detected input files. This is useful if the input files do not match the set of input arguments of the workflow.",
-      required: false,
-      multiple: true,
-      multiple_sep: ";"
-    ],
-    [
-      type: "string",
-      name: "--settings",
-      example: '{"output_dataset": "dataset.h5ad", "k": 10}',
-      description: "Global arguments as a JSON glob to be passed to all components.",
-      required: false
-    ]
-  ]
-  if (!(auto_params.containsKey("id"))) {
-    auto_params["id"] = "auto"
-  }
-
-  // run auto config through processConfig once more
-  auto_config = processConfig(auto_config)
-
-  workflow findStatesTempWf {
-    helpMessage(auto_config)
-
-    output_ch = 
-      channelFromParams(auto_params, auto_config)
-        | flatMap { autoId, args ->
-
-          def globalSettings = args.settings ? readYamlBlob(args.settings) : [:]
-
-          // look for state files in input dir
-          def stateFiles = args.input_states
-
-          // filter state files by regex
-          if (args.filter) {
-            stateFiles = stateFiles.findAll{ stateFile ->
-              def stateFileStr = stateFile.toString()
-              def matcher = stateFileStr =~ args.filter
-              matcher.matches()}
-          }
-
-          // read in states
-          def states = stateFiles.collect { stateFile ->
-            def state_ = readTaggedYaml(stateFile)
-            [state_.id, state_]
-          }
-
-          // construct renameMap
-          if (args.rename_keys) {
-            def renameMap = args.rename_keys.collectEntries{renameString ->
-              def split = renameString.split(":")
-              assert split.size() == 2: "Argument 'rename_keys' should be of the form 'newKey:oldKey;newKey:oldKey'"
-              split
-            }
-
-            // rename keys in state, only let states through which have all keys
-            // also add global settings
-            states = states.collectMany{id, state ->
-              def newState = [:]
-
-              for (key in renameMap.keySet()) {
-                def origKey = renameMap[key]
-                if (!(state.containsKey(origKey))) {
-                  return []
-                }
-                newState[key] = state[origKey]
-              }
-
-              [[id, globalSettings + newState]]
-            }
-          }
-
-          states
-        }
-    emit:
-    output_ch
-  }
-
-  return findStatesTempWf
 }
 
 // inner workflow hook

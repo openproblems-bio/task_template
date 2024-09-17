@@ -21,20 +21,16 @@ echo "  Make sure to run 'scripts/project/build_all_docker_containers.sh'!"
 
 # generate a unique id
 RUN_ID="testrun_$(date +%Y-%m-%d_%H-%M-%S)"
-publish_dir="resources/results/${RUN_ID}"
-
-# write the parameters to file
-cat > /tmp/params.yaml << HERE
-input_states: s3://openproblems-data/resources_test/task_template/**/state.yaml
-rename_keys: 'input_train:output_train;input_test:output_test;input_solution:output_solution'
-output_state: "state.yaml"
-publish_dir: "$publish_dir"
-HERE
+publish_dir="temp/results/${RUN_ID}"
 
 nextflow run . \
   -main-script target/nextflow/workflows/run_benchmark/main.nf \
   -profile docker \
   -resume \
-  -entry auto \
   -c common/nextflow_helpers/labels_ci.config \
-  -params-file /tmp/params.yaml
+  --id cxg_mouse_pancreas_atlas \
+  --input_train resources_test/task_template/cxg_mouse_pancreas_atlas/train.h5ad \
+  --input_test resources_test/task_template/cxg_mouse_pancreas_atlas/test.h5ad \
+  --input_solution resources_test/task_template/cxg_mouse_pancreas_atlas/solution.h5ad \
+  --output_state state.yaml \
+  --publish_dir "$publish_dir"

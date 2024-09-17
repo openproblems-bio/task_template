@@ -2886,7 +2886,7 @@ meta = [
             }
           },
           "example" : [
-            "resources_test/task_template/pancreas/train.h5ad"
+            "resources_test/task_template/cxg_mouse_pancreas_atlas/train.h5ad"
           ],
           "must_exist" : true,
           "create_parent" : true,
@@ -2964,7 +2964,7 @@ meta = [
             }
           },
           "example" : [
-            "resources_test/task_template/pancreas/test.h5ad"
+            "resources_test/task_template/cxg_mouse_pancreas_atlas/test.h5ad"
           ],
           "must_exist" : true,
           "create_parent" : true,
@@ -3012,7 +3012,7 @@ meta = [
             }
           },
           "example" : [
-            "resources_test/task_template/pancreas/prediction.h5ad"
+            "resources_test/task_template/cxg_mouse_pancreas_atlas/prediction.h5ad"
           ],
           "must_exist" : true,
           "create_parent" : true,
@@ -3047,8 +3047,8 @@ meta = [
     },
     {
       "type" : "file",
-      "path" : "/resources_test/task_template/pancreas",
-      "dest" : "resources_test/task_template/pancreas"
+      "path" : "/resources_test/task_template/cxg_mouse_pancreas_atlas",
+      "dest" : "resources_test/task_template/cxg_mouse_pancreas_atlas"
     }
   ],
   "info" : {
@@ -3146,7 +3146,7 @@ meta = [
     "engine" : "docker",
     "output" : "target/nextflow/methods/logistic_regression",
     "viash_version" : "0.9.0",
-    "git_commit" : "0b9f73604cf9d6b6c9a2381a5ed2a159732936d8",
+    "git_commit" : "a6f8b50bc9c71231f17b709ce1c7a23be23d6a49",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {
@@ -3160,13 +3160,13 @@ meta = [
       "test_resources" : [
         {
           "type" : "s3",
-          "path" : "s3://openproblems-data/resources_test/task_template/",
-          "dest" : "resources_test/task_template"
+          "path" : "s3://openproblems-data/resources_test/common/",
+          "dest" : "resources_test/common"
         },
         {
           "type" : "s3",
-          "path" : "s3://openproblems-data/resources_test/common/",
-          "dest" : "resources_test/common"
+          "path" : "s3://openproblems-data/resources_test/task_template/",
+          "dest" : "resources_test/task_template"
         }
       ]
     },
