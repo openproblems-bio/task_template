@@ -6,7 +6,7 @@ import openproblems as op
 
 ## VIASH START
 par = {
-    'input': 'resources_test/common/pancreas/dataset.h5ad',
+    'input': 'resources_test/common/cxg_mouse_pancreas_atlas/dataset.h5ad',
     'method': 'batch',
     'seed': None,
     'obs_batch': 'batch',
