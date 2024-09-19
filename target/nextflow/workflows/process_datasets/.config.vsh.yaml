@@ -338,7 +338,7 @@ build_info:
   output: "target/nextflow/workflows/process_datasets"
   executable: "target/nextflow/workflows/process_datasets/main.nf"
   viash_version: "0.9.0"
-  git_commit: "aa7c25062a7dcca2cef6eadc347130448968fe70"
+  git_commit: "8461f1fb05336fd1f9f93f883679193a7a260ecc"
   git_remote: "https://github.com/openproblems-bio/task_template"
   dependencies:
   - "target/dependencies/github/openproblems-bio/core/build/main/nextflow/schema/verify_data_structure"
