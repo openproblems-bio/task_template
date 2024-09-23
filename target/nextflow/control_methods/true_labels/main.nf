@@ -3250,7 +3250,7 @@ meta = [
     "engine" : "docker",
     "output" : "target/nextflow/control_methods/true_labels",
     "viash_version" : "0.9.0",
-    "git_commit" : "8461f1fb05336fd1f9f93f883679193a7a260ecc",
+    "git_commit" : "29d5e529c83dcd23ab211be4b3c8c534462d0066",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {
