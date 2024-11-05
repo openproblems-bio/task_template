@@ -3308,7 +3308,7 @@ meta = [
     "engine" : "native",
     "output" : "target/nextflow/workflows/process_datasets",
     "viash_version" : "0.9.0",
-    "git_commit" : "29d5e529c83dcd23ab211be4b3c8c534462d0066",
+    "git_commit" : "8c60c7c30c4c33797ab201667457bcf8849f83b4",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {

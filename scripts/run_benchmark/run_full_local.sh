@@ -38,7 +38,7 @@ HERE
 
 # run the benchmark
 nextflow run openproblems-bio/task_template \
-  --revision build/main \
+  -r build/main \
   -main-script target/nextflow/workflows/run_benchmark/main.nf \
   -profile docker \
   -resume \
