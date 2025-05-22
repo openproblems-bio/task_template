@@ -1,4 +1,4 @@
-viash_version: 0.9.0
+viash_version: 0.9.4
 
 # Step 1: Change the name of the task.
 # example: task_name_of_this_task
@@ -75,14 +75,14 @@ authors:
       linkedin: johndoe
 
 # Step 7: Remove all of the comments of the steps you completed
-# Step 8: High five yourself!
 
 config_mods: |
   .runners[.type == "nextflow"].config.labels := { lowmem : "memory = 20.Gb", midmem : "memory = 50.Gb", highmem : "memory = 100.Gb", lowcpu : "cpus = 5", midcpu : "cpus = 15", highcpu : "cpus = 30", lowtime : "time = 1.h", midtime : "time = 4.h", hightime : "time = 8.h", veryhightime : "time = 24.h" }
 
 repositories:
-  - name: core
+  - name: op
     type: github
-    repo: openproblems-bio/core
-    tag: build/main
-    path: viash/core
+    repo: openproblems-bio/openproblems
+    tag: build/main # Step 8: Set this to the latest release
+
+# Step 9: High five yourself!
