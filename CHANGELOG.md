@@ -18,6 +18,10 @@
 
 * Updated configs, components and CI to the latest Viash version (PR #8).
 
+* Updated to Viash 0.9.4 (PR #12).
+
+* Use dependencies in `openproblems-bio/openproblems` (PR #12).
+
 ## MINOR CHANGES
 
 * Updated `README.md` (PR #5).
