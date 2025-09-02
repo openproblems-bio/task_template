@@ -63,7 +63,7 @@ resources:
 
 dependencies:
   - name: utils/extract_uns_metadata
-    repository: op
+    repository: openproblems
   - name: control_methods/true_labels
   - name: methods/logistic_regression
   - name: metrics/accuracy
