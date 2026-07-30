@@ -3508,7 +3508,7 @@ meta = [
     "engine" : "native",
     "output" : "target/nextflow/workflows/run_benchmark",
     "viash_version" : "0.9.4",
-    "git_commit" : "04c5e1dbd9a90cd4e75e820cf3621975ddddb530",
+    "git_commit" : "0a65d6446b0cf5bb335cb79194b28312a855cbe5",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {
@@ -3758,14 +3758,23 @@ workflow run_wf {
       metric_configs_file.write(metric_configs_yaml_blob)
 
       // store the task info in a file
-      def viash_file = meta.resources_dir.resolve("_viash.yaml")
+      def task_info = readYaml(meta.resources_dir.resolve("_viash.yaml"))
+      // commitId is null when nextflow runs from a local checkout instead of a revision
+      if (workflow.commitId) {
+        task_info.commit = workflow.commitId
+      }
+      // the launch time -- workflow.complete is only known once the run is over
+      task_info.timestamp = workflow.start.toInstant()
+        .truncatedTo(java.time.temporal.ChronoUnit.SECONDS).toString()
+      def task_info_file = tempFile("task_info.yaml")
+      task_info_file.write(toYamlBlob(task_info))
 
       // create output state
       def new_state = [
         output_dataset_info: dataset_uns_file,
         output_method_configs: method_configs_file,
         output_metric_configs: metric_configs_file,
-        output_task_info: viash_file,
+        output_task_info: task_info_file,
         _meta: states[0]._meta
       ]
 
