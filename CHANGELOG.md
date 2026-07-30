@@ -26,5 +26,8 @@
 
 * Updated `README.md` (PR #5).
 
+* `run_benchmark`: write the commit the workflow ran from and the launch time into
+  `task_info.yaml`, instead of publishing `_viash.yaml` verbatim (PR #18).
+
 ## BUGFIXES
 
