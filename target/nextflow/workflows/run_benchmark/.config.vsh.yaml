@@ -253,12 +253,51 @@ argument_groups:
     direction: "output"
     multiple: false
     multiple_sep: ";"
-- name: "Methods"
+- name: "Method filtering"
+  description: "Use these arguments to filter methods by name. By default, all methods\
+    \ are\nrun. If `--methods_include` is defined, only those methods are run. If\n\
+    `--methods_exclude` is defined, all methods except those specified are run.\n\
+    These arguments are mutually exclusive, so only `--methods_include` OR\n`--methods_exclude`\
+    \ can set but not both.\n"
   arguments:
   - type: "string"
-    name: "--method_ids"
-    description: "A list of method ids to run. If not specified, all methods will\
-      \ be run."
+    name: "--methods_include"
+    description: "A list of method ids to include. If specified, only these methods\
+      \ will be run.\n"
+    info: null
+    required: false
+    direction: "input"
+    multiple: true
+    multiple_sep: ";"
+  - type: "string"
+    name: "--methods_exclude"
+    description: "A list of method ids to exclude. If specified, all methods except\
+      \ the ones listed will be run.\n"
+    info: null
+    required: false
+    direction: "input"
+    multiple: true
+    multiple_sep: ";"
+- name: "Metric filtering"
+  description: "Use these arguments to filter metrics by name. By default, all metrics\
+    \ are\nrun. If `--metrics_include` is defined, only those metrics are run. If\n\
+    `--metrics_exclude` is defined, all metrics except those specified are run.\n\
+    These arguments are mutually exclusive, so only `--metrics_include` OR\n`--metrics_exclude`\
+    \ can set but not both.\n"
+  arguments:
+  - type: "string"
+    name: "--metrics_include"
+    description: "A list of metric ids to include. If specified, only these metrics\
+      \ will be run.\n"
+    info: null
+    required: false
+    direction: "input"
+    multiple: true
+    multiple_sep: ";"
+  - type: "string"
+    name: "--metrics_exclude"
+    description: "A list of metric ids to exclude. If specified, all metrics except\
+      \ the ones listed will be run.\n"
     info: null
     required: false
     direction: "input"
@@ -271,6 +310,8 @@ resources:
   entrypoint: "run_wf"
 - type: "file"
   path: "_viash.yaml"
+- type: "file"
+  path: "helper.nf"
 info: null
 status: "enabled"
 scope:
@@ -331,7 +372,7 @@ build_info:
   output: "target/nextflow/workflows/run_benchmark"
   executable: "target/nextflow/workflows/run_benchmark/main.nf"
   viash_version: "0.9.7"
-  git_commit: "06946485cf933c840418fd659961cca427ba228c"
+  git_commit: "7c9de073f6996132c6baaaff14f9ccea7ef7296f"
   git_remote: "https://github.com/openproblems-bio/task_template"
   dependencies:
   - "target/dependencies/github/openproblems-bio/openproblems/build/main/nextflow/utils/extract_uns_metadata"

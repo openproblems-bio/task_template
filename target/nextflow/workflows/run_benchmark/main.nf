@@ -3403,12 +3403,46 @@ meta = [
       ]
     },
     {
-      "name" : "Methods",
+      "name" : "Method filtering",
+      "description" : "Use these arguments to filter methods by name. By default, all methods are\nrun. If `--methods_include` is defined, only those methods are run. If\n`--methods_exclude` is defined, all methods except those specified are run.\nThese arguments are mutually exclusive, so only `--methods_include` OR\n`--methods_exclude` can set but not both.\n",
       "arguments" : [
         {
           "type" : "string",
-          "name" : "--method_ids",
-          "description" : "A list of method ids to run. If not specified, all methods will be run.",
+          "name" : "--methods_include",
+          "description" : "A list of method ids to include. If specified, only these methods will be run.\n",
+          "required" : false,
+          "direction" : "input",
+          "multiple" : true,
+          "multiple_sep" : ";"
+        },
+        {
+          "type" : "string",
+          "name" : "--methods_exclude",
+          "description" : "A list of method ids to exclude. If specified, all methods except the ones listed will be run.\n",
+          "required" : false,
+          "direction" : "input",
+          "multiple" : true,
+          "multiple_sep" : ";"
+        }
+      ]
+    },
+    {
+      "name" : "Metric filtering",
+      "description" : "Use these arguments to filter metrics by name. By default, all metrics are\nrun. If `--metrics_include` is defined, only those metrics are run. If\n`--metrics_exclude` is defined, all metrics except those specified are run.\nThese arguments are mutually exclusive, so only `--metrics_include` OR\n`--metrics_exclude` can set but not both.\n",
+      "arguments" : [
+        {
+          "type" : "string",
+          "name" : "--metrics_include",
+          "description" : "A list of metric ids to include. If specified, only these metrics will be run.\n",
+          "required" : false,
+          "direction" : "input",
+          "multiple" : true,
+          "multiple_sep" : ";"
+        },
+        {
+          "type" : "string",
+          "name" : "--metrics_exclude",
+          "description" : "A list of metric ids to exclude. If specified, all metrics except the ones listed will be run.\n",
           "required" : false,
           "direction" : "input",
           "multiple" : true,
@@ -3427,6 +3461,10 @@ meta = [
     {
       "type" : "file",
       "path" : "/_viash.yaml"
+    },
+    {
+      "type" : "file",
+      "path" : "/common/nextflow_helpers/helper.nf"
     }
   ],
   "status" : "enabled",
@@ -3518,7 +3556,7 @@ meta = [
     "engine" : "native",
     "output" : "target/nextflow/workflows/run_benchmark",
     "viash_version" : "0.9.7",
-    "git_commit" : "06946485cf933c840418fd659961cca427ba228c",
+    "git_commit" : "7c9de073f6996132c6baaaff14f9ccea7ef7296f",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {
@@ -3602,6 +3640,8 @@ include { accuracy } from "${meta.resources_dir}/../../../nextflow/metrics/accur
 
 // inner workflow
 // user-provided Nextflow code
+include { checkItemAllowed } from "${meta.resources_dir}/helper.nf"
+
 workflow auto {
   findStates(params, meta.config)
     | meta.workflow.run(
@@ -3661,7 +3701,13 @@ workflow run_wf {
         // if the preferred normalisation is none at all,
         // we can pass whichever dataset we want
         def norm_check = (norm == "log_cp10k" && pref == "counts") || norm == pref
-        def method_check = !state.method_ids || state.method_ids.contains(comp.config.name)
+        def method_check = checkItemAllowed(
+          comp.config.name,
+          state.methods_include,
+          state.methods_exclude,
+          "methods_include",
+          "methods_exclude"
+        )
 
         method_check && norm_check
       },
@@ -3695,6 +3741,18 @@ workflow run_wf {
     // run all metrics
     | runEach(
       components: metrics,
+
+      // use the 'filter' argument to only run the metrics the user asked for
+      filter: { id, state, comp ->
+        checkItemAllowed(
+          comp.config.name,
+          state.metrics_include,
+          state.metrics_exclude,
+          "metrics_include",
+          "metrics_exclude"
+        )
+      },
+
       id: { id, state, comp ->
         id + "." + comp.config.name
       },
