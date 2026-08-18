@@ -65,6 +65,24 @@ argument_groups:
         multiple: true
         description: |
           A list of method ids to exclude. If specified, all methods except the ones listed will be run.
+  - name: Metric filtering
+    description: |
+      Use these arguments to filter metrics by name. By default, all metrics are
+      run. If `--metrics_include` is defined, only those metrics are run. If
+      `--metrics_exclude` is defined, all metrics except those specified are run.
+      These arguments are mutually exclusive, so only `--metrics_include` OR
+      `--metrics_exclude` can set but not both.
+    arguments:
+      - name: "--metrics_include"
+        type: string
+        multiple: true
+        description: |
+          A list of metric ids to include. If specified, only these metrics will be run.
+      - name: "--metrics_exclude"
+        type: string
+        multiple: true
+        description: |
+          A list of metric ids to exclude. If specified, all metrics except the ones listed will be run.
 
 resources:
   - type: nextflow_script

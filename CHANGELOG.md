@@ -4,7 +4,7 @@
 
 <!-- * Restructured `src` directory (PR #3). -->
 
-* `run_benchmark`: replaced the `--method_ids` argument with `--methods_include` and `--methods_exclude`, filtered via `checkItemAllowed()` from the common nextflow helpers (PR #20).
+* `run_benchmark`: replaced `--method_ids` with `--methods_include`/`--methods_exclude` and added `--metrics_include`/`--metrics_exclude` (PR #20).
 
 ## NEW FUNCTIONALITY
 
