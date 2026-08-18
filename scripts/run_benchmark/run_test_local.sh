@@ -12,6 +12,9 @@ cd "$REPO_ROOT"
 
 set -e
 
+# pin the nextflow version the viash-generated config is compatible with
+export NXF_VER=24.04.3
+
 echo "Running benchmark on test data"
 echo "  Make sure to run 'scripts/project/build_all_docker_containers.sh'!"
 
