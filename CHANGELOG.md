@@ -4,6 +4,8 @@
 
 <!-- * Restructured `src` directory (PR #3). -->
 
+* `run_benchmark`: replaced the `--method_ids` argument with `--methods_include` and `--methods_exclude`, filtered via `checkItemAllowed()` from the common nextflow helpers (PR #20).
+
 ## NEW FUNCTIONALITY
 
 * Added `control_methods/true_labels` component (PR #5).
