@@ -10,6 +10,7 @@ workflow auto {
 // construct list of methods and control methods
 methods = [
   true_labels,
+  random_labels,
   logistic_regression
 ]
 

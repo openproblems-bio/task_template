@@ -14,6 +14,8 @@
 
 * Added `metrics/accuracy` component (PR #5).
 
+* Added `control_methods/random_labels` component (PR #22).
+
 ## MAJOR CHANGES
 
 * Updated `api` files (PR #5).
@@ -42,4 +44,8 @@
 * Added a placeholder `thumbnail.svg` and scoped the common test resources to `cxg_mouse_pancreas_atlas` (PR #21).
 
 ## BUGFIXES
+
+* `process_dataset`: also seed `np.random` when `--seed` is set (PR #22).
+
+* `accuracy`: write `metric_values` as a list to match `metric_ids` (PR #22).
 
