@@ -32,7 +32,7 @@ print('Compute metrics', flush=True)
 # metric_ids and metric_values can have length > 1
 # but should be of equal length
 uns_metric_ids = [ 'accuracy' ]
-uns_metric_values = np.mean(input_solution.obs["label"] == input_prediction.obs["label_pred"])
+uns_metric_values = [ np.mean(input_solution.obs["label"] == input_prediction.obs["label_pred"]) ]
 
 print("Write output AnnData to file", flush=True)
 output = ad.AnnData(
