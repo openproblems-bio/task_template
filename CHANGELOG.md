@@ -29,5 +29,9 @@
 * `run_benchmark`: write the commit the workflow ran from and the launch time into
   `task_info.yaml`, instead of publishing `_viash.yaml` verbatim (PR #18).
 
+* Updated to Viash 0.9.7.
+
+* Updated the `common` submodule and pinned the Viash 0.9.7 JSON schemas in `.vscode/settings.json` (PR #19).
+
 ## BUGFIXES
 
