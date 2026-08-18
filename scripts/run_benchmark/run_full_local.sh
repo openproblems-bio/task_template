@@ -11,12 +11,11 @@ cd "$REPO_ROOT"
 # please refer to the nextflow information for more details:
 # https://www.nextflow.io/docs/latest/
 
-# remove this when you have implemented the script
-echo "TODO: once the 'run_benchmark' workflow has been implemented, update this script to use it."
-echo "  Step 1: replace 'task_template' with the name of the task in the following command."
-echo "  Step 2: replace the rename keys parameters to fit your run_benchmark inputs"
-echo "  Step 3: replace the settings parameter to fit your run_benchmark outputs"
-echo "  Step 4: remove this message"
+# remove this when you have updated the script for your task
+echo "TODO: update this script to fit your task."
+echo "  Step 1: replace 'task_template' with the name of the task in the commands below."
+echo "  Step 2: update the rename keys to match the run_benchmark workflow inputs."
+echo "  Step 3: remove this message."
 exit 1
 
 set -e

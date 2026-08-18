@@ -35,5 +35,11 @@
 
 * Updated the `common` submodule (PR #19).
 
+* Fixed broken documentation links in `README.md` and `CONTRIBUTING.md`, and added a quickstart to the README (PR #21).
+
+* `run_test_local.sh` now runs as-is on the template's test resources (PR #21).
+
+* Added a placeholder `thumbnail.svg` and scoped the common test resources to `cxg_mouse_pancreas_atlas` (PR #21).
+
 ## BUGFIXES
 

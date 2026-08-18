@@ -3546,7 +3546,7 @@ meta = [
     "engine" : "native",
     "output" : "target/nextflow/workflows/process_datasets",
     "viash_version" : "0.9.7",
-    "git_commit" : "7c9de073f6996132c6baaaff14f9ccea7ef7296f",
+    "git_commit" : "8f952fcf06a37dddec79b689a06da2afe8e86ed5",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {
@@ -3556,12 +3556,12 @@ meta = [
     "summary" : "A one sentence summary of purpose and methodology. Used for creating an overview tables.",
     "description" : "Provide a clear and concise description of your task, detailing the specific problem it aims\nto solve. Outline the input data types, the expected output, and any assumptions or constraints.\nBe sure to explain any terminology or concepts that are essential for understanding the task.\n\nExplain the motivation behind your proposed task. Describe the biological or computational \nproblem you aim to address and why it's important. Discuss the current state of research in\nthis area and any gaps or challenges that your task could help address. This section \nshould convince readers of the significance and relevance of your task.\n",
     "info" : {
-      "image" : "The name of the image file to use for the component on the website.",
+      "image" : "thumbnail.svg",
       "test_resources" : [
         {
           "type" : "s3",
-          "path" : "s3://openproblems-data/resources_test/common/",
-          "dest" : "resources_test/common"
+          "path" : "s3://openproblems-data/resources_test/common/cxg_mouse_pancreas_atlas/",
+          "dest" : "resources_test/common/cxg_mouse_pancreas_atlas"
         },
         {
           "type" : "s3",

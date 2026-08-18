@@ -32,16 +32,19 @@ references:
   #       year = {2021},
   #     }
 info:
-  image: The name of the image file to use for the component on the website.
-  # Step 5: Replace the task_template to the name of the task.
+  # Step 5: Replace the thumbnail with an image of your task. Should be an
+  # *.svg file renderable to 450x150 px.
+  image: thumbnail.svg
+  # Step 6: Replace the task_template to the name of the task, and the common
+  # dataset to the dataset(s) your task uses.
   test_resources:
     - type: s3
-      path: s3://openproblems-data/resources_test/common/
-      dest: resources_test/common
+      path: s3://openproblems-data/resources_test/common/cxg_mouse_pancreas_atlas/
+      dest: resources_test/common/cxg_mouse_pancreas_atlas
     - type: s3
       path: s3://openproblems-data/resources_test/task_template/
       dest: resources_test/task_template
-# Step 6: Update the authors of the task.
+# Step 7: Update the authors of the task.
 authors:
   # Full name of the author, usually in the name of FirstName MiddleName LastName.
   - name: John Doe
@@ -58,12 +61,12 @@ authors:
       email: john@doe.me
       twitter: johndoe
       linkedin: johndoe
-# Step 7: Remove all of the comments of the steps you completed
+# Step 8: Remove all of the comments of the steps you completed
 config_mods: |
   .runners[.type == "nextflow"].config.labels := { lowmem : "memory = 20.Gb", midmem : "memory = 50.Gb", highmem : "memory = 100.Gb", lowcpu : "cpus = 5", midcpu : "cpus = 15", highcpu : "cpus = 30", lowtime : "time = 1.h", midtime : "time = 4.h", hightime : "time = 8.h", veryhightime : "time = 24.h" }
 repositories:
   - name: openproblems
     type: github
     repo: openproblems-bio/openproblems
-    tag: build/main # Step 8: Set this to the latest release
-# Step 9: High five yourself!
+    tag: build/main # Step 9: Set this to the latest release
+# Step 10: High five yourself!
