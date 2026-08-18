@@ -449,9 +449,9 @@ RUN pip install --upgrade pip && \
   pip install --upgrade --no-cache-dir "scikit-learn"
 
 LABEL org.opencontainers.image.description="Companion container for running component metrics accuracy"
-LABEL org.opencontainers.image.created="2026-08-18T10:07:06Z"
+LABEL org.opencontainers.image.created="2026-08-18T10:19:34Z"
 LABEL org.opencontainers.image.source="https://github.com/openproblems-bio/task_template"
-LABEL org.opencontainers.image.revision="8f952fcf06a37dddec79b689a06da2afe8e86ed5"
+LABEL org.opencontainers.image.revision="fe6dd119bb82b06d3275cf6846f02586f77d3999"
 LABEL org.opencontainers.image.version="build_main"
 
 VIASHDOCKER
@@ -1103,7 +1103,7 @@ print('Compute metrics', flush=True)
 # metric_ids and metric_values can have length > 1
 # but should be of equal length
 uns_metric_ids = [ 'accuracy' ]
-uns_metric_values = np.mean(input_solution.obs["label"] == input_prediction.obs["label_pred"])
+uns_metric_values = [ np.mean(input_solution.obs["label"] == input_prediction.obs["label_pred"]) ]
 
 print("Write output AnnData to file", flush=True)
 output = ad.AnnData(

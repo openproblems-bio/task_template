@@ -3608,7 +3608,7 @@ meta = [
     "engine" : "docker",
     "output" : "target/nextflow/data_processors/process_dataset",
     "viash_version" : "0.9.7",
-    "git_commit" : "8f952fcf06a37dddec79b689a06da2afe8e86ed5",
+    "git_commit" : "fe6dd119bb82b06d3275cf6846f02586f77d3999",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {
@@ -3743,9 +3743,10 @@ from subset_h5ad_by_format import subset_h5ad_by_format
 config = op.project.read_viash_config(meta["config"])
 
 # set seed if need be
-if par["seed"]:
+if par["seed"] is not None:
     print(f">> Setting seed to {par['seed']}")
     random.seed(par["seed"])
+    np.random.seed(par["seed"])
 
 print(">> Load data", flush=True)
 adata = ad.read_h5ad(par["input"])

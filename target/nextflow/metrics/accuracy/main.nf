@@ -3401,7 +3401,7 @@ meta = [
     "engine" : "docker",
     "output" : "target/nextflow/metrics/accuracy",
     "viash_version" : "0.9.7",
-    "git_commit" : "8f952fcf06a37dddec79b689a06da2afe8e86ed5",
+    "git_commit" : "fe6dd119bb82b06d3275cf6846f02586f77d3999",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {
@@ -3539,7 +3539,7 @@ print('Compute metrics', flush=True)
 # metric_ids and metric_values can have length > 1
 # but should be of equal length
 uns_metric_ids = [ 'accuracy' ]
-uns_metric_values = np.mean(input_solution.obs["label"] == input_prediction.obs["label_pred"])
+uns_metric_values = [ np.mean(input_solution.obs["label"] == input_prediction.obs["label_pred"]) ]
 
 print("Write output AnnData to file", flush=True)
 output = ad.AnnData(
