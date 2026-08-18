@@ -28,9 +28,10 @@ from subset_h5ad_by_format import subset_h5ad_by_format
 config = op.project.read_viash_config(meta["config"])
 
 # set seed if need be
-if par["seed"]:
+if par["seed"] is not None:
     print(f">> Setting seed to {par['seed']}")
     random.seed(par["seed"])
+    np.random.seed(par["seed"])
 
 print(">> Load data", flush=True)
 adata = ad.read_h5ad(par["input"])
