@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="150" viewBox="0 0 450 150">
+  <rect width="450" height="150" fill="#f5f7fa"/>
+  <rect x="10.5" y="10.5" width="429" height="129" rx="8" fill="none" stroke="#94a3b8" stroke-dasharray="6 4"/>
+  <text x="225" y="70" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#475569">task thumbnail placeholder</text>
+  <text x="225" y="95" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#94a3b8">replace with an svg renderable to 450x150 px</text>
+</svg>

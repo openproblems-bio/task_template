@@ -9,7 +9,7 @@ This repo is a template to create a new task for the OpenProblems v2. This repo 
 
 > [!IMPORTANT] 
 > Before creating a new repository, make sure you are part of the OpenProblems task team. This will be done when you create an issue for the task and you get the go ahead to create the task.
-> For more information on how to create a new task, check out the [Create a new task](https://openproblems.bio/documentation/create_task/) documentation.
+> For more information on how to create a new task, check out the [Create a new task](https://openproblems.bio/documentation/create_task/getting-started/) documentation.
 
 The instructions below will guide you through creating a new repository from this template ([creating-a-repository-from-a-template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template)).
 
@@ -32,6 +32,22 @@ git clone --recursive git@github.com:openproblems-bio/<repo_name>.git
 
 ## What to do next
 
-Check out the [instructions](https://github.com/openproblems-bio/common_resources/blob/main/INSTRUCTIONS.md) for more information on how to update the example files and components. These instructions also contain information on how to build out the task and basic commands.
+Check out the [task instructions](https://github.com/openproblems-bio/common_resources/blob/main/TASK_INSTRUCTIONS.md) for more information on how to update the example files and components. These instructions also contain information on how to build out the task and basic commands.
+
+To verify that everything works as-is before making changes, run:
+
+```bash
+# download the test resources
+scripts/sync_resources.sh
+
+# build the components and docker images
+viash ns build --parallel --setup cachedbuild
+
+# run the unit tests
+viash ns test --parallel
+
+# run the benchmark on the test resources
+scripts/run_benchmark/run_test_local.sh
+```
 
 For more information on the OpenProblems v2, check out the [documentation](https://openproblems.bio/documentation/).

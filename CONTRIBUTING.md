@@ -68,7 +68,7 @@ This will create a new method in `src/methods/my_method`. Next, you should:
 * Implement the method's code
 * Run the unit test
 
-Please review our documentation on [creating a new method](https://openproblems.bio/documentation/create_component/add_a_method) for more information on how to do this.
+Please review our documentation on [creating a new method](https://openproblems.bio/documentation/create_component/add-a-method/) for more information on how to do this.
 
 
 ### Creating a new metric
@@ -96,7 +96,7 @@ This will create a new metric in `src/metrics/my_metric`. Next, you should:
 * Implement the metric's code
 * Run the unit test
 
-Please review our documentation on [creating a new metric](https://openproblems.bio/documentation/create_component/add_a_metric) for more information.
+Please review our documentation on [creating a new metric](https://openproblems.bio/documentation/create_component/add-a-metric/) for more information.
 
 
 ## Frequently used commands
@@ -141,8 +141,8 @@ viash ns test --parallel
 
 ### Running the benchmark
 
-To run the benchmark, you can use the following command:
+To run the benchmark on the test resources, you can use the following command:
 
 ```bash
-scripts/run_benchmark/run.sh
+scripts/run_benchmark/run_test_local.sh
 ```
