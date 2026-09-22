@@ -7,7 +7,8 @@ import sklearn.linear_model
 par = {
   'input_train': 'resources_test/task_template/cxg_mouse_pancreas_atlas/train.h5ad',
   'input_test': 'resources_test/task_template/cxg_mouse_pancreas_atlas/test.h5ad',
-  'output': 'output.h5ad'
+  'output': 'output.h5ad',
+  'inverse_regularization_strength': 1.0
 }
 meta = {
   'name': 'logistic_regression'
@@ -23,7 +24,9 @@ print('Preprocess data', flush=True)
 
 print('Train model', flush=True)
 # ... train model ...
-classifier = sklearn.linear_model.LogisticRegression()
+classifier = sklearn.linear_model.LogisticRegression(
+  C=par['inverse_regularization_strength']
+)
 classifier.fit(input_train.obsm["X_pca"], input_train.obs["label"].astype(str))
 
 print('Generate predictions', flush=True)

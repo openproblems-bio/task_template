@@ -3256,6 +3256,18 @@ meta = [
           "direction" : "output",
           "multiple" : false,
           "multiple_sep" : ";"
+        },
+        {
+          "type" : "double",
+          "name" : "--inverse_regularization_strength",
+          "description" : "Inverse of the regularization strength (`C` in scikit-learn). Smaller\nvalues specify stronger regularization.\n",
+          "default" : [
+            1.0
+          ],
+          "required" : false,
+          "direction" : "input",
+          "multiple" : false,
+          "multiple_sep" : ";"
         }
       ]
     }
@@ -3289,6 +3301,17 @@ meta = [
   ],
   "info" : {
     "preferred_normalization" : "log_cp10k",
+    "variants" : {
+      "strong_regularization" : {
+        "inverse_regularization_strength" : 0.1
+      },
+      "default_regularization" : {
+        "inverse_regularization_strength" : 1.0
+      },
+      "weak_regularization" : {
+        "inverse_regularization_strength" : 10.0
+      }
+    },
     "type" : "method",
     "type_info" : {
       "label" : "Method",
@@ -3385,7 +3408,7 @@ meta = [
     "engine" : "docker",
     "output" : "target/nextflow/methods/logistic_regression",
     "viash_version" : "0.9.7",
-    "git_commit" : "fe6dd119bb82b06d3275cf6846f02586f77d3999",
+    "git_commit" : "3c57b974ddcda3af0d86a3163007b8d3d3f3fcf5",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {
@@ -3477,7 +3500,8 @@ import sklearn.linear_model
 par = {
   'input_train': $( if [ ! -z ${VIASH_PAR_INPUT_TRAIN+x} ]; then echo "r'${VIASH_PAR_INPUT_TRAIN//\\'/\\'\\"\\'\\"r\\'}'"; else echo None; fi ),
   'input_test': $( if [ ! -z ${VIASH_PAR_INPUT_TEST+x} ]; then echo "r'${VIASH_PAR_INPUT_TEST//\\'/\\'\\"\\'\\"r\\'}'"; else echo None; fi ),
-  'output': $( if [ ! -z ${VIASH_PAR_OUTPUT+x} ]; then echo "r'${VIASH_PAR_OUTPUT//\\'/\\'\\"\\'\\"r\\'}'"; else echo None; fi )
+  'output': $( if [ ! -z ${VIASH_PAR_OUTPUT+x} ]; then echo "r'${VIASH_PAR_OUTPUT//\\'/\\'\\"\\'\\"r\\'}'"; else echo None; fi ),
+  'inverse_regularization_strength': $( if [ ! -z ${VIASH_PAR_INVERSE_REGULARIZATION_STRENGTH+x} ]; then echo "float(r'${VIASH_PAR_INVERSE_REGULARIZATION_STRENGTH//\\'/\\'\\"\\'\\"r\\'}')"; else echo None; fi )
 }
 meta = {
   'name': $( if [ ! -z ${VIASH_META_NAME+x} ]; then echo "r'${VIASH_META_NAME//\\'/\\'\\"\\'\\"r\\'}'"; else echo None; fi ),
@@ -3514,7 +3538,9 @@ print('Preprocess data', flush=True)
 
 print('Train model', flush=True)
 # ... train model ...
-classifier = sklearn.linear_model.LogisticRegression()
+classifier = sklearn.linear_model.LogisticRegression(
+  C=par['inverse_regularization_strength']
+)
 classifier.fit(input_train.obsm["X_pca"], input_train.obs["label"].astype(str))
 
 print('Generate predictions', flush=True)

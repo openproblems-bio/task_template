@@ -3401,7 +3401,7 @@ meta = [
     "engine" : "docker",
     "output" : "target/nextflow/metrics/accuracy",
     "viash_version" : "0.9.7",
-    "git_commit" : "fe6dd119bb82b06d3275cf6846f02586f77d3999",
+    "git_commit" : "3c57b974ddcda3af0d86a3163007b8d3d3f3fcf5",
     "git_remote" : "https://github.com/openproblems-bio/task_template"
   },
   "package_config" : {
