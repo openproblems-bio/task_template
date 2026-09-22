@@ -43,13 +43,29 @@ links:
 info:
   # Which normalisation method this component prefers to use (required).
   preferred_normalization: log_cp10k
+  # Named parameter sets to evaluate in the benchmark (optional). The
+  # `run_benchmark` workflow runs the method once per variant, passing the
+  # listed values as arguments, and tags the scores with the variant name.
+  # Only the listed variants are run, so to also evaluate the default
+  # arguments, list them as a variant with their values spelled out (viash
+  # drops empty variants from the config). Without `variants`, the method is
+  # run once with its default arguments.
+  variants:
+    strong_regularization:
+      inverse_regularization_strength: 0.1
+    default_regularization:
+      inverse_regularization_strength: 1.0
+    weak_regularization:
+      inverse_regularization_strength: 10.0
 
 # Component-specific parameters (optional)
-# arguments:
-#   - name: "--n_neighbors"
-#     type: "integer"
-#     default: 5
-#     description: Number of neighbors to use.
+arguments:
+  - name: "--inverse_regularization_strength"
+    type: double
+    default: 1.0
+    description: |
+      Inverse of the regularization strength (`C` in scikit-learn). Smaller
+      values specify stronger regularization.
 
 # Resources required to run the component
 resources:

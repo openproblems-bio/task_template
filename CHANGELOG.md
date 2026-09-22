@@ -16,6 +16,10 @@
 
 * Added `control_methods/random_labels` component (PR #22).
 
+* `run_benchmark`: run parameterised methods once per named paramset from `info.variants` or the new `--paramsets` file, tag scores with `paramset_name`/`paramset`, and allow `--methods_include`/`--methods_exclude` to target `<method_id>.<paramset_name>`, using the new paramset helpers in `common/nextflow_helpers/helper.nf` (PR #23).
+
+* `methods/logistic_regression`: added an `--inverse_regularization_strength` argument with three `info.variants` as an example of a parameterised method (PR #23).
+
 ## MAJOR CHANGES
 
 * Updated `api` files (PR #5).
