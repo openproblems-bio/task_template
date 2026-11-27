@@ -20,31 +20,31 @@ mkdir -p $DATASET_DIR
 
 # process dataset
 viash run src/data_processors/process_dataset/config.vsh.yaml -- \
-  --input $RAW_DATA/cxg_mouse_pancreas_atlas/dataset.h5ad \
-  --output_train $DATASET_DIR/cxg_mouse_pancreas_atlas/train.h5ad \
-  --output_test $DATASET_DIR/cxg_mouse_pancreas_atlas/test.h5ad \
-  --output_solution $DATASET_DIR/cxg_mouse_pancreas_atlas/solution.h5ad
+  --input $RAW_DATA/cxg_mouse_pancreas_atlas/dataset.anndata.zarr \
+  --output_train $DATASET_DIR/cxg_mouse_pancreas_atlas/train.anndata.zarr \
+  --output_test $DATASET_DIR/cxg_mouse_pancreas_atlas/test.anndata.zarr \
+  --output_solution $DATASET_DIR/cxg_mouse_pancreas_atlas/solution.anndata.zarr
 
 # run one method
 viash run src/methods/logistic_regression/config.vsh.yaml -- \
-    --input_train $DATASET_DIR/cxg_mouse_pancreas_atlas/train.h5ad \
-    --input_test $DATASET_DIR/cxg_mouse_pancreas_atlas/test.h5ad \
-    --output $DATASET_DIR/cxg_mouse_pancreas_atlas/prediction.h5ad
+    --input_train $DATASET_DIR/cxg_mouse_pancreas_atlas/train.anndata.zarr \
+    --input_test $DATASET_DIR/cxg_mouse_pancreas_atlas/test.anndata.zarr \
+    --output $DATASET_DIR/cxg_mouse_pancreas_atlas/prediction.anndata.zarr
 
 # run one metric
 viash run src/metrics/accuracy/config.vsh.yaml -- \
-    --input_prediction $DATASET_DIR/cxg_mouse_pancreas_atlas/prediction.h5ad \
-    --input_solution $DATASET_DIR/cxg_mouse_pancreas_atlas/solution.h5ad \
-    --output $DATASET_DIR/cxg_mouse_pancreas_atlas/score.h5ad
+    --input_prediction $DATASET_DIR/cxg_mouse_pancreas_atlas/prediction.anndata.zarr \
+    --input_solution $DATASET_DIR/cxg_mouse_pancreas_atlas/solution.anndata.zarr \
+    --output $DATASET_DIR/cxg_mouse_pancreas_atlas/score.json
 
 # write manual state.yaml. this is not actually necessary but you never know it might be useful
 cat > $DATASET_DIR/cxg_mouse_pancreas_atlas/state.yaml << HERE
 id: cxg_mouse_pancreas_atlas
-train: !file train.h5ad
-test: !file test.h5ad
-solution: !file solution.h5ad
-prediction: !file prediction.h5ad
-score: !file score.h5ad
+train: !file train.anndata.zarr
+test: !file test.anndata.zarr
+solution: !file solution.anndata.zarr
+prediction: !file prediction.anndata.zarr
+score: !file score.json
 HERE
 
 # only run this if you have access to the openproblems-data bucket

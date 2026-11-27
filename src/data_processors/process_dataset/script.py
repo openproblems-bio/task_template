@@ -6,14 +6,14 @@ import openproblems as op
 
 ## VIASH START
 par = {
-    'input': 'resources_test/common/cxg_mouse_pancreas_atlas/dataset.h5ad',
+    'input': 'resources_test/common/cxg_mouse_pancreas_atlas/dataset.anndata.zarr',
     'method': 'batch',
     'seed': None,
     'obs_batch': 'batch',
     'obs_label': 'cell_type',
-    'output_train': 'train.h5ad',
-    'output_test': 'test.h5ad',
-    'output_solution': 'solution.h5ad'
+    'output_train': 'train.anndata.zarr',
+    'output_test': 'test.anndata.zarr',
+    'output_solution': 'solution.anndata.zarr'
 }
 meta = {
     'resources_dir': 'target/executable/data_processors/process_dataset',
@@ -34,7 +34,7 @@ if par["seed"] is not None:
     np.random.seed(par["seed"])
 
 print(">> Load data", flush=True)
-adata = ad.read_h5ad(par["input"])
+adata = ad.read_zarr(par["input"])
 print("input:", adata)
 
 print(f">> Process data using {par['method']} method")
@@ -82,6 +82,6 @@ output_solution = subset_h5ad_by_format(
 )
 
 print(">> Writing data", flush=True)
-output_train.write_h5ad(par["output_train"])
-output_test.write_h5ad(par["output_test"])
-output_solution.write_h5ad(par["output_solution"])
+output_train.write_zarr(par["output_train"])
+output_test.write_zarr(par["output_test"])
+output_solution.write_zarr(par["output_solution"])

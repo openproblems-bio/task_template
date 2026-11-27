@@ -23,11 +23,11 @@ export NXF_VER=24.04.3
 nextflow run . \
   -main-script target/nextflow/workflows/process_datasets/main.nf \
   -profile docker \
-  -entry auto \
   -c common/nextflow_helpers/labels_ci.config \
-  --id run_test \
-  --input_states "$DATASETS_DIR/**/state.yaml" \
-  --rename_keys 'input:output_dataset' \
-  --settings '{"output_train": "train.h5ad", "output_test": "test.h5ad"}' \
+  --id cxg_mouse_pancreas_atlas \
+  --input "$DATASETS_DIR/cxg_mouse_pancreas_atlas/dataset.anndata.zarr" \
+  --output_train '$id/train.anndata.zarr' \
+  --output_test '$id/test.anndata.zarr' \
+  --output_solution '$id/solution.anndata.zarr' \
   --publish_dir "$OUTPUT_DIR" \
-  --output_state "state.yaml"
+  --output_state '$id/state.yaml'

@@ -81,6 +81,7 @@ authors:
 
 config_mods: |
   .runners[.type == "nextflow"].config.labels := { lowmem : "memory = 20.Gb", midmem : "memory = 50.Gb", highmem : "memory = 100.Gb", lowcpu : "cpus = 5", midcpu : "cpus = 15", highcpu : "cpus = 30", lowtime : "time = 1.h", midtime : "time = 4.h", hightime : "time = 8.h", veryhightime : "time = 24.h" }
+  .engines[.type == "docker"].setup += { type: "docker", env: ["ANNDATA_AUTO_SHARD_ZARR_V3=1", "OMP_NUM_THREADS=4", "OPENBLAS_NUM_THREADS=4", "MKL_NUM_THREADS=4", "NUMBA_NUM_THREADS=4"] }
 
 repositories:
   - name: openproblems
