@@ -52,12 +52,13 @@ info:
   # Step 6: Replace the task_template to the name of the task, and the common
   # dataset to the dataset(s) your task uses.
   test_resources:
-    - type: s3
-      path: s3://openproblems-data/resources_test/common/cxg_mouse_pancreas_atlas/
-      dest: resources_test/common/cxg_mouse_pancreas_atlas
-    - type: s3
-      path: s3://openproblems-data/resources_test/task_template/
-      dest: resources_test/task_template
+    # a common dataset, created in https://github.com/openproblems-bio/datasets
+    - path: lamin://openproblems/data-dev/artifact/NcNUHGCs1hm3sYJ70005
+      dest: resources_test/common/cxg_mouse_pancreas_atlas/dataset.anndata.zarr
+    # created by scripts/create_test_resources/cxg_mouse_pancreas_atlas.py
+    - path: lamin://openproblems/data-dev/collection/6SChivJEoZWZRgk10000
+      dest: resources_test/task_template/cxg_mouse_pancreas_atlas
+      strip_prefix: resources_test/task_template/cxg_mouse_pancreas_atlas/
 
 # Step 7: Update the authors of the task.
 authors: 

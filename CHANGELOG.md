@@ -8,6 +8,8 @@
 
 * All datasets, solutions and predictions are AnnData zarr stores (`*.anndata.zarr`) instead of h5ad files, and metrics write their scores to a json file (PR #24).
 
+* The test resources are stored in LaminDB (`openproblems/data-dev`) instead of S3, and are created by `scripts/create_test_resources/cxg_mouse_pancreas_atlas.py` (PR #24).
+
 * `run_benchmark`: write the results to one `--output_results` directory instead of five separate yaml outputs (PR #24).
 
 * `run_benchmark`: the id of a run is the chain of steps that led to it (`<dataset_id>/<method_id>/<paramset_name>/<metric_id>`), and scores are tagged with `paramset_id` (was `paramset_name`), `run_ids`, `metric_component` and `metric_run_id` (PR #24).
