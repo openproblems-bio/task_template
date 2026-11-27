@@ -23,10 +23,11 @@ nextflow run . \
   -main-script target/nextflow/workflows/run_benchmark/main.nf \
   -profile docker \
   -resume \
+  -with-trace "$publish_dir/trace.txt" \
   -c common/nextflow_helpers/labels_ci.config \
   --id cxg_mouse_pancreas_atlas \
-  --input_train resources_test/task_template/cxg_mouse_pancreas_atlas/train.h5ad \
-  --input_test resources_test/task_template/cxg_mouse_pancreas_atlas/test.h5ad \
-  --input_solution resources_test/task_template/cxg_mouse_pancreas_atlas/solution.h5ad \
+  --input_train resources_test/task_template/cxg_mouse_pancreas_atlas/train.anndata.zarr \
+  --input_test resources_test/task_template/cxg_mouse_pancreas_atlas/test.anndata.zarr \
+  --input_solution resources_test/task_template/cxg_mouse_pancreas_atlas/solution.anndata.zarr \
   --output_state state.yaml \
   --publish_dir "$publish_dir"

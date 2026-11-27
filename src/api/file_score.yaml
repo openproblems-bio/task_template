@@ -1,11 +1,11 @@
 type: file
-example: "resources_test/task_template/cxg_mouse_pancreas_atlas/score.h5ad"
+example: "resources_test/task_template/cxg_mouse_pancreas_atlas/score.json"
 label: Score
 summary: "File indicating the score of a metric."
 info:
   format:
-    type: h5ad
-    uns:
+    type: json
+    keys:
       - type: string
         name: dataset_id
         description: "A unique identifier for the dataset"

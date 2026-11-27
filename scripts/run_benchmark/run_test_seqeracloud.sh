@@ -21,9 +21,9 @@ publish_dir_s3="s3://openproblems-nextflow/temp/results/$(date +%Y-%m-%d_%H-%M-%
 # write the parameters to file
 cat > /tmp/params.yaml << HERE
 id: cxg_mouse_pancreas_atlas
-input_train: $resources_test_s3/cxg_mouse_pancreas_atlas/train.h5ad
-input_test: $resources_test_s3/cxg_mouse_pancreas_atlas/test.h5ad
-input_solution: $resources_test_s3/cxg_mouse_pancreas_atlas/solution.h5ad
+input_train: $resources_test_s3/cxg_mouse_pancreas_atlas/train.anndata.zarr
+input_test: $resources_test_s3/cxg_mouse_pancreas_atlas/test.anndata.zarr
+input_solution: $resources_test_s3/cxg_mouse_pancreas_atlas/solution.anndata.zarr
 output_state: "state.yaml"
 publish_dir: $publish_dir_s3
 HERE

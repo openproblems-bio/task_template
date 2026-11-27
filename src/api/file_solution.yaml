@@ -1,11 +1,11 @@
 #TODO: Change to the required and/or optional fields of the anndata
 type: file
-example: "resources_test/task_template/cxg_mouse_pancreas_atlas/solution.h5ad"
+example: "resources_test/task_template/cxg_mouse_pancreas_atlas/solution.anndata.zarr"
 label: "Solution"
 summary: "The solution for the test data"
 info:
   format:
-    type: h5ad
+    type: anndata_zarr
     layers: 
       - type: integer
         name: counts
@@ -55,6 +55,7 @@ info:
         type: string
         description: Bibtex reference of the paper in which the dataset was published.
         required: false
+        multiple: true
       - name: dataset_summary
         type: string
         description: Short description of the dataset.

@@ -6,6 +6,14 @@
 
 * `run_benchmark`: replaced `--method_ids` with `--methods_include`/`--methods_exclude` and added `--metrics_include`/`--metrics_exclude` (PR #20).
 
+* All datasets, solutions and predictions are AnnData zarr stores (`*.anndata.zarr`) instead of h5ad files, and metrics write their scores to a json file (PR #24).
+
+* The test resources are stored in LaminDB (`openproblems/data-dev`) instead of S3, and are created by `scripts/create_test_resources/cxg_mouse_pancreas_atlas.py` (PR #24).
+
+* `run_benchmark`: write the results to one `--output_results` directory instead of five separate yaml outputs (PR #24).
+
+* `run_benchmark`: the id of a run is the chain of steps that led to it (`<dataset_id>/<method_id>/<paramset_name>/<metric_id>`), and scores are tagged with `paramset_id` (was `paramset_name`), `run_ids`, `metric_component` and `metric_run_id` (PR #24).
+
 ## NEW FUNCTIONALITY
 
 * Added `control_methods/true_labels` component (PR #5).
@@ -19,6 +27,10 @@
 * `run_benchmark`: run parameterised methods once per named paramset from `info.variants` or the new `--paramsets` file, tag scores with `paramset_name`/`paramset`, and allow `--methods_include`/`--methods_exclude` to target `<method_id>.<paramset_name>`, using the new paramset helpers in `common/nextflow_helpers/helper.nf` (PR #23).
 
 * `methods/logistic_regression`: added an `--inverse_regularization_strength` argument with three `info.variants` as an example of a parameterised method (PR #23).
+
+* `run_benchmark`: added `--store_steps` to also publish the outputs of the methods and/or metrics, which are otherwise left in the work directory (PR #24).
+
+* `run_benchmark`: the results contain a `runs.yaml` with every run of a method or metric that was attempted: what it is, whether it succeeded, the resources it used and where its output is stored (PR #24).
 
 ## MAJOR CHANGES
 

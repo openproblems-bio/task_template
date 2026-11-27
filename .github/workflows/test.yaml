@@ -6,6 +6,9 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   test:
-    uses: viash-io/viash-actions/.github/workflows/test.yaml@v6
+    uses: edaro/viash-actions/.github/workflows/test.yaml@v7
