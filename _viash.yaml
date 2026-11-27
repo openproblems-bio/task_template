@@ -56,7 +56,7 @@ info:
     - path: lamin://openproblems/data-dev/artifact/NcNUHGCs1hm3sYJ70005
       dest: resources_test/common/cxg_mouse_pancreas_atlas/dataset.anndata.zarr
     # created by scripts/create_test_resources/cxg_mouse_pancreas_atlas.py
-    - path: lamin://openproblems/data-dev/collection/6SChivJEoZWZRgk10000
+    - path: lamin://openproblems/data-dev/collection/6SChivJEoZWZRgk10002
       dest: resources_test/task_template/cxg_mouse_pancreas_atlas
       strip_prefix: resources_test/task_template/cxg_mouse_pancreas_atlas/
 
