@@ -33,7 +33,7 @@ argument_groups:
             * `method_configs.yaml`: the configs of the methods
             * `metric_configs.yaml`: the configs of the metrics
             * `task_info.yaml`: the task info
-            * `stored_outputs.yaml`: which outputs were stored with `--store_steps`, and what they are
+            * `runs.yaml`: every run of a method or metric that was attempted, with what it is, whether it succeeded, the resources it used and where its output is stored (see `--store_steps`)
         default: results
   - name: Intermediate outputs
     description: |
@@ -48,7 +48,7 @@ argument_groups:
           The steps of which the outputs are published as well, next to the results.
           The output of a step is stored at the id of its run, e.g.
           `<dataset_id>/<method_id>/<paramset_name>/prediction.anndata.zarr`. The dataset,
-          method, paramset and metric of each stored output are listed in `stored_outputs.yaml`
+          method, paramset and metric of each stored output are listed in `runs.yaml`
           in the results, so they do not need to be derived from its path.
   - name: Method filtering
     description: |

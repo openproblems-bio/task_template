@@ -23,6 +23,7 @@ nextflow run . \
   -main-script target/nextflow/workflows/run_benchmark/main.nf \
   -profile docker \
   -resume \
+  -with-trace "$publish_dir/trace.txt" \
   -c common/nextflow_helpers/labels_ci.config \
   --id cxg_mouse_pancreas_atlas \
   --input_train resources_test/task_template/cxg_mouse_pancreas_atlas/train.anndata.zarr \

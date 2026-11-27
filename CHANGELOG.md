@@ -28,7 +28,9 @@
 
 * `methods/logistic_regression`: added an `--inverse_regularization_strength` argument with three `info.variants` as an example of a parameterised method (PR #23).
 
-* `run_benchmark`: added `--store_steps` to also publish the outputs of the methods and/or metrics, which are otherwise left in the work directory, and list them in `stored_outputs.yaml` in the results (PR #24).
+* `run_benchmark`: added `--store_steps` to also publish the outputs of the methods and/or metrics, which are otherwise left in the work directory (PR #24).
+
+* `run_benchmark`: the results contain a `runs.yaml` with every run of a method or metric that was attempted: what it is, whether it succeeded, the resources it used and where its output is stored (PR #24).
 
 ## MAJOR CHANGES
 
