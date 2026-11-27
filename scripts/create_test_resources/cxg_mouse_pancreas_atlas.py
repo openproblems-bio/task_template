@@ -44,10 +44,11 @@ dataset = ln.Artifact.get("NcNUHGCs1hm3sYJ70005").cache()
 
 output_dir = Path(tempfile.mkdtemp()) / "cxg_mouse_pancreas_atlas"
 
-# process dataset
+# process dataset, with a seed so that rerunning this script gives the same split
 viash_run(
   "data_processors/process_dataset",
   input=dataset,
+  seed=123,
   output_train=output_dir / "train.anndata.zarr",
   output_test=output_dir / "test.anndata.zarr",
   output_solution=output_dir / "solution.anndata.zarr",
